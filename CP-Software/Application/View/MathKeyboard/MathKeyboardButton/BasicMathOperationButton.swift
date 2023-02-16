@@ -1,0 +1,34 @@
+//
+//  BasicMathOperationButton.swift
+//  CP-Software
+//
+//  Created by Малиль Дугулюбгов on 16.02.2023.
+//
+
+import SwiftUI
+
+struct BasicMathOperationButton: View {
+    let mathOperation: BasicMathOperation
+    
+    var body: some View {
+        Button {
+            
+        } label: {
+            ZStack {
+                Rectangle()
+                
+                Text(mathOperation.title)
+                    .font(.system(size: 35, weight: .semibold))
+                    .foregroundColor(Color(.systemBackground))
+            }
+        }
+        .tint(.primary)
+        .frame(width: 65, height: 65)
+    }
+}
+
+struct MathOperationButton_Previews: PreviewProvider {
+    static var previews: some View {
+        BasicMathOperationButton(mathOperation: .add)
+    }
+}

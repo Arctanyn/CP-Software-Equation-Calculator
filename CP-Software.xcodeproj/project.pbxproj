@@ -13,6 +13,17 @@
 		945CF56F299E5CA90018AA70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 945CF56D299E5CA90018AA70 /* Main.storyboard */; };
 		945CF571299E5CAA0018AA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945CF570299E5CAA0018AA70 /* Assets.xcassets */; };
 		945CF574299E5CAA0018AA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 945CF572299E5CAA0018AA70 /* LaunchScreen.storyboard */; };
+		945CF587299E60620018AA70 /* String + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF586299E60620018AA70 /* String + Ext.swift */; };
+		945CF59F299E910A0018AA70 /* EquationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF59E299E910A0018AA70 /* EquationInput.swift */; };
+		945CF5A1299E913B0018AA70 /* NumberButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A0299E913B0018AA70 /* NumberButton.swift */; };
+		945CF5A3299E92760018AA70 /* NumbersPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A2299E92760018AA70 /* NumbersPad.swift */; };
+		945CF5A5299E95530018AA70 /* MathKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A4299E95530018AA70 /* MathKeyboard.swift */; };
+		945CF5A7299E95800018AA70 /* BasicMathOperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A6299E95800018AA70 /* BasicMathOperationButton.swift */; };
+		945CF5AA299E9CEB0018AA70 /* MathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A9299E9CEB0018AA70 /* MathOperation.swift */; };
+		94D2512D299EB8C9000E260C /* AdvancedMathOperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2512C299EB8C9000E260C /* AdvancedMathOperationButton.swift */; };
+		94D2512F299EB975000E260C /* BasicMathOperationsPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */; };
+		94D25131299EBA88000E260C /* AdvancedMathOperationsPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D25130299EBA88000E260C /* AdvancedMathOperationsPad.swift */; };
+		94D25133299EBC0B000E260C /* AuxiliaryMathOperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D25132299EBC0B000E260C /* AuxiliaryMathOperationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +35,17 @@
 		945CF570299E5CAA0018AA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		945CF573299E5CAA0018AA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		945CF575299E5CAA0018AA70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		945CF586299E60620018AA70 /* String + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Ext.swift"; sourceTree = "<group>"; };
+		945CF59E299E910A0018AA70 /* EquationInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationInput.swift; sourceTree = "<group>"; };
+		945CF5A0299E913B0018AA70 /* NumberButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberButton.swift; sourceTree = "<group>"; };
+		945CF5A2299E92760018AA70 /* NumbersPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersPad.swift; sourceTree = "<group>"; };
+		945CF5A4299E95530018AA70 /* MathKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathKeyboard.swift; sourceTree = "<group>"; };
+		945CF5A6299E95800018AA70 /* BasicMathOperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMathOperationButton.swift; sourceTree = "<group>"; };
+		945CF5A9299E9CEB0018AA70 /* MathOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOperation.swift; sourceTree = "<group>"; };
+		94D2512C299EB8C9000E260C /* AdvancedMathOperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMathOperationButton.swift; sourceTree = "<group>"; };
+		94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMathOperationsPad.swift; sourceTree = "<group>"; };
+		94D25130299EBA88000E260C /* AdvancedMathOperationsPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMathOperationsPad.swift; sourceTree = "<group>"; };
+		94D25132299EBC0B000E260C /* AuxiliaryMathOperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryMathOperationButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +78,114 @@
 		945CF566299E5CA90018AA70 /* CP-Software */ = {
 			isa = PBXGroup;
 			children = (
-				945CF567299E5CA90018AA70 /* AppDelegate.swift */,
-				945CF569299E5CA90018AA70 /* SceneDelegate.swift */,
-				945CF56B299E5CA90018AA70 /* ViewController.swift */,
+				945CF57C299E5CDD0018AA70 /* Application */,
+				945CF57B299E5CCE0018AA70 /* Supporting */,
+			);
+			path = "CP-Software";
+			sourceTree = "<group>";
+		};
+		945CF57B299E5CCE0018AA70 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
 				945CF56D299E5CA90018AA70 /* Main.storyboard */,
 				945CF570299E5CAA0018AA70 /* Assets.xcassets */,
 				945CF572299E5CAA0018AA70 /* LaunchScreen.storyboard */,
 				945CF575299E5CAA0018AA70 /* Info.plist */,
 			);
-			path = "CP-Software";
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		945CF57C299E5CDD0018AA70 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				945CF57D299E5CE40018AA70 /* AppFile */,
+				945CF57E299E5CEC0018AA70 /* ViewController */,
+				945CF585299E60530018AA70 /* Helper */,
+				945CF59D299E90FA0018AA70 /* View */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		945CF57D299E5CE40018AA70 /* AppFile */ = {
+			isa = PBXGroup;
+			children = (
+				945CF567299E5CA90018AA70 /* AppDelegate.swift */,
+				945CF569299E5CA90018AA70 /* SceneDelegate.swift */,
+			);
+			path = AppFile;
+			sourceTree = "<group>";
+		};
+		945CF57E299E5CEC0018AA70 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				945CF56B299E5CA90018AA70 /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		945CF585299E60530018AA70 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				945CF5A8299E9CDB0018AA70 /* Enum */,
+				945CF588299E60960018AA70 /* Extension */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		945CF588299E60960018AA70 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				945CF586299E60620018AA70 /* String + Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		945CF59D299E90FA0018AA70 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				945CF59E299E910A0018AA70 /* EquationInput.swift */,
+				945CF5AC299EA1FE0018AA70 /* MathKeyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		945CF5A8299E9CDB0018AA70 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				945CF5A9299E9CEB0018AA70 /* MathOperation.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		945CF5AB299EA0EF0018AA70 /* MathKeyboardButton */ = {
+			isa = PBXGroup;
+			children = (
+				945CF5A0299E913B0018AA70 /* NumberButton.swift */,
+				945CF5A6299E95800018AA70 /* BasicMathOperationButton.swift */,
+				94D2512C299EB8C9000E260C /* AdvancedMathOperationButton.swift */,
+				94D25132299EBC0B000E260C /* AuxiliaryMathOperationButton.swift */,
+			);
+			path = MathKeyboardButton;
+			sourceTree = "<group>";
+		};
+		945CF5AC299EA1FE0018AA70 /* MathKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				945CF5AB299EA0EF0018AA70 /* MathKeyboardButton */,
+				945CF5AD299EA2150018AA70 /* MathKeyboardPad */,
+				945CF5A4299E95530018AA70 /* MathKeyboard.swift */,
+			);
+			path = MathKeyboard;
+			sourceTree = "<group>";
+		};
+		945CF5AD299EA2150018AA70 /* MathKeyboardPad */ = {
+			isa = PBXGroup;
+			children = (
+				945CF5A2299E92760018AA70 /* NumbersPad.swift */,
+				94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */,
+				94D25130299EBA88000E260C /* AdvancedMathOperationsPad.swift */,
+			);
+			path = MathKeyboardPad;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +259,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				945CF5A5299E95530018AA70 /* MathKeyboard.swift in Sources */,
+				945CF5AA299E9CEB0018AA70 /* MathOperation.swift in Sources */,
+				945CF5A1299E913B0018AA70 /* NumberButton.swift in Sources */,
+				945CF587299E60620018AA70 /* String + Ext.swift in Sources */,
+				94D25131299EBA88000E260C /* AdvancedMathOperationsPad.swift in Sources */,
+				94D2512F299EB975000E260C /* BasicMathOperationsPad.swift in Sources */,
+				945CF59F299E910A0018AA70 /* EquationInput.swift in Sources */,
 				945CF56C299E5CA90018AA70 /* ViewController.swift in Sources */,
+				945CF5A7299E95800018AA70 /* BasicMathOperationButton.swift in Sources */,
 				945CF568299E5CA90018AA70 /* AppDelegate.swift in Sources */,
+				94D25133299EBC0B000E260C /* AuxiliaryMathOperationButton.swift in Sources */,
+				945CF5A3299E92760018AA70 /* NumbersPad.swift in Sources */,
 				945CF56A299E5CA90018AA70 /* SceneDelegate.swift in Sources */,
+				94D2512D299EB8C9000E260C /* AdvancedMathOperationButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,12 +421,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XX34NBC2NS;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "CP-Software/Info.plist";
+				INFOPLIST_FILE = "CP-Software/Supporting/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +434,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.malildugulyubgov.CP-Software";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,12 +452,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XX34NBC2NS;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "CP-Software/Info.plist";
+				INFOPLIST_FILE = "CP-Software/Supporting/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +465,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.malildugulyubgov.CP-Software";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
