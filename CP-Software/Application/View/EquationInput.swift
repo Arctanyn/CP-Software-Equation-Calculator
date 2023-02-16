@@ -10,10 +10,13 @@ import SwiftUI
 struct EquationInput: View {
     @State private var text = String()
     
+    init() {
+        UITextField.appearance().inputView = UIView()
+    }
+    
     var body: some View {
         NavigationStack {
-            VStack() {
-                
+            VStack {
                 TextField("Type an equation...", text: $text)
                     .font(.system(size: 22))
                     .padding()
