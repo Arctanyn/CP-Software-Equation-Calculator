@@ -79,7 +79,7 @@ final class EquationInputViewModel: ObservableObject {
             }
         case .x:
             if isXPassedChecks {
-                supplementEquation(withEquationComponents: "x", withEquationExpression: "x")
+                supplementEquation(withEquationComponents: "X", withEquationExpression: "X")
             }
         case .roundBracket:
             if isBracketsBalanced {
@@ -142,7 +142,7 @@ private extension EquationInputViewModel {
     
     var isBracketsBalanced: Bool { equation.isBracketsBalanced() }
     
-    var isLastX: Bool { equation.last == "x" }
+    var isLastX: Bool { equation.last == "X" }
     
     var isLastClosingBracketOrX: Bool { isLastClosingBracket || isLastX }
     

@@ -47,7 +47,7 @@ enum AuxiliaryMathOperation {
     var title: String {
         switch self {
         case .dot: return "."
-        case .x: return "x"
+        case .x: return "X"
         case .roundBracket: return "()"
         }
     }
