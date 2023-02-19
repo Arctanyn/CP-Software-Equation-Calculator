@@ -39,7 +39,7 @@ final class EquationInputViewModel: ObservableObject {
     //MARK: - Methods
     
     func addNumber(_ number: Int) {
-        guard !checkTheLastIsClosingBracket() && !checkTheLastIsX() else { return }
+        guard !isLastClosingBracketOrX else { return }
         
         let strNumber = String(number)
         supplementEquation(withEquationComponents: strNumber, withEquationExpression: strNumber)
@@ -48,22 +48,22 @@ final class EquationInputViewModel: ObservableObject {
     func addBasicOperation(_ operation: BasicMathOperation) {
         switch operation {
         case .add:
-            if checkTheLastIsNumberOrClosingBracketOrX() {
+            if isLastNumberOrClosingBracketOrX {
                 supplementEquation(withEquationComponents: "+", withEquationExpression: "+")
                 allowsDot = true
             }
         case .sub:
-            if isEquationEmpty || checkTheLastIsNumber() || checkTheLastIsBracket() || checkTheLastIsX() {
+            if checksForSubtraction {
                 supplementEquation(withEquationComponents: "-", withEquationExpression: "-")
                 allowsDot = true
             }
         case .mul:
-            if checkTheLastIsNumberOrClosingBracketOrX()  {
+            if isLastNumberOrClosingBracketOrX  {
                 supplementEquation(withEquationComponents: "×", withEquationExpression: "*")
                 allowsDot = true
             }
         case .div:
-            if checkTheLastIsNumberOrClosingBracketOrX() {
+            if isLastNumberOrClosingBracketOrX {
                 supplementEquation(withEquationComponents: "/", withEquationExpression: "/")
                 allowsDot = true
             }
@@ -73,16 +73,16 @@ final class EquationInputViewModel: ObservableObject {
     func addAuxiliaryOperation(_ operation: AuxiliaryMathOperation) {
         switch operation {
         case .dot:
-            if checkTheLastIsNumber() && allowsDot {
+            if isLastNumber && allowsDot {
                 supplementEquation(withEquationComponents: ".", withEquationExpression: ".")
                 allowsDot = false
             }
         case .x:
-            if cheksForX() {
+            if isXPassedChecks {
                 supplementEquation(withEquationComponents: "x", withEquationExpression: "x")
             }
         case .roundBracket:
-            if checkBracketsIsBalanced() {
+            if isBracketsBalanced {
                 addOpeningBracket()
             } else {
                 addClosingBracket()
@@ -114,12 +114,12 @@ private extension EquationInputViewModel {
     }
     
     func addOpeningBracket() {
-        guard !checkTheLastIsNumber() && !checkTheLastIsClosingBracket() && !checkTheLastIsX() else { return }
+        guard !isLastNumber && !isLastClosingBracket && !isLastX else { return }
         supplementEquation(withEquationComponents: "(", withEquationExpression: "(")
     }
     
     func addClosingBracket() {
-        guard checkTheLastIsNumber() || checkTheLastIsX() else { return }
+        guard isLastNumber || isLastX else { return }
         supplementEquation(withEquationComponents: ")", withEquationExpression: ")")
     }
     
@@ -128,39 +128,25 @@ private extension EquationInputViewModel {
 //MARK: - Input Checks
 
 private extension EquationInputViewModel {
-    func checkTheLastIsNumberOrClosingBracket() -> Bool {
-        return checkTheLastIsNumber() || checkTheLastIsClosingBracket()
-    }
+    var isLastNumberOrClosingBracket: Bool { isLastNumber || isLastClosingBracket }
     
-    func checkTheLastIsNumber() -> Bool {
-        return Double(equationComponents.last ?? "") != nil
-    }
+    var isLastNumber: Bool { Double(equationComponents.last ?? "") != nil }
     
-    func checkTheLastIsBracket() -> Bool {
-        return checkTheLastIsOpeningBracket() || checkTheLastIsClosingBracket()
-    }
+    var checksForSubtraction: Bool { isEquationEmpty || isLastNumber || isLastBracket || isLastX }
     
-    func checkTheLastIsOpeningBracket() -> Bool {
-        return equationComponents.last == "("
-    }
+    var isLastBracket: Bool { isLastOpeningBracket || isLastClosingBracket }
     
-    func checkTheLastIsClosingBracket() -> Bool {
-        return equationComponents.last == ")"
-    }
+    var isLastOpeningBracket: Bool { equationComponents.last == "(" }
     
-    func checkBracketsIsBalanced() -> Bool {
-        equation.isBracketsBalanced()
-    }
+    var isLastClosingBracket: Bool { equationComponents.last == ")" }
     
-    func checkTheLastIsX() -> Bool {
-        equation.last == "x"
-    }
+    var isBracketsBalanced: Bool { equation.isBracketsBalanced() }
     
-    func checkTheLastIsNumberOrClosingBracketOrX() -> Bool {
-        checkTheLastIsNumberOrClosingBracket() || checkTheLastIsX()
-    }
+    var isLastX: Bool { equation.last == "x" }
     
-    func cheksForX() -> Bool {
-        isEquationEmpty || (!checkTheLastIsNumber() && !checkTheLastIsClosingBracket() && !checkTheLastIsX())
-    }
+    var isLastClosingBracketOrX: Bool { isLastClosingBracket || isLastX }
+    
+    var isLastNumberOrClosingBracketOrX: Bool { isLastNumberOrClosingBracket || isLastX }
+    
+    var isXPassedChecks: Bool { isEquationEmpty || (!isLastNumber && !isLastClosingBracket && !isLastX) }
 }
