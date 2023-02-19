@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct AuxiliaryMathOperationButton: View {
+    @EnvironmentObject private var viewModel: EquationInputViewModel
     let mathOperation: AuxiliaryMathOperation
     
     var body: some View {
         Button {
-            
+            viewModel.addAuxiliaryOperation(mathOperation)
         } label: {
             ZStack {
                 Rectangle()

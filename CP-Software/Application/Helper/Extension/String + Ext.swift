@@ -11,4 +11,15 @@ extension String {
     var expression: NSExpression {
         NSExpression(format: self)
     }
+    
+    func isBracketsBalanced() -> Bool {
+        switch self.filter("()".contains).replacingOccurrences(of: "()", with: "") {
+        case "":
+            return true
+        case self:
+            return false
+        case let next:
+            return next.isBracketsBalanced()
+        }
+    }
 }
