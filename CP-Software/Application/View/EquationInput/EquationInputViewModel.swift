@@ -70,6 +70,20 @@ final class EquationInputViewModel: ObservableObject {
         }
     }
     
+    func addAdvancedOperation(_ operation: AdvancedMathOperation) {
+        switch operation {
+        case .pow:
+            if isLastNumberOrClosingBracket || isLastX {
+                supplementEquation(withEquationComponents: "^(", withEquationExpression: "**(")
+            }
+        case .sqrt:
+            if isEquationEmpty || isLastBasicOperation || isLastOpeningBracket {
+                supplementEquation(withEquationComponents: "sqrt(", withEquationExpression: "sqrt(")
+            }
+        }
+
+    }
+
     func addAuxiliaryOperation(_ operation: AuxiliaryMathOperation) {
         switch operation {
         case .dot:
@@ -89,6 +103,7 @@ final class EquationInputViewModel: ObservableObject {
             }
         }
     }
+    
     
     func removeLastOperation() {
         removeEquationsLastOperation()
@@ -119,7 +134,7 @@ private extension EquationInputViewModel {
     }
     
     func addClosingBracket() {
-        guard isLastNumber || isLastX else { return }
+        guard isLastNumber || isLastX || !isWithinEmptyBreackets else { return }
         supplementEquation(withEquationComponents: ")", withEquationExpression: ")")
     }
     
@@ -140,13 +155,26 @@ private extension EquationInputViewModel {
     
     var isLastClosingBracket: Bool { equationComponents.last == ")" }
     
+    var isWithinEmptyBreackets: Bool { equation.hasSuffix("()") }
+    
     var isBracketsBalanced: Bool { equation.isBracketsBalanced() }
     
-    var isLastX: Bool { equation.last == "X" }
+    var isLastX: Bool { equationComponents.last == "X" }
     
     var isLastClosingBracketOrX: Bool { isLastClosingBracket || isLastX }
     
     var isLastNumberOrClosingBracketOrX: Bool { isLastNumberOrClosingBracket || isLastX }
     
     var isXPassedChecks: Bool { isEquationEmpty || (!isLastNumber && !isLastClosingBracket && !isLastX) }
+        
+    var isLastBasicOperation: Bool {
+        guard let last = equationComponents.last else { return false }
+        
+        switch last {
+        case "+", "-", "×", "/":
+            return true
+        default:
+            return false
+        }
+    }
 }
