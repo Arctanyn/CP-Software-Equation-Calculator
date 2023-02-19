@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct MathKeyboard: View {
+    @EnvironmentObject private var viewModel: EquationInputViewModel
+    
     var body: some View {
         VStack(alignment: .trailing) {
             Button {
-                
+                viewModel.removeLastOperation()
             } label: {
                 Image(systemName: "delete.left")
                     .font(.system(size: 30))
                     .padding()
             }
             .tint(.primary)
+            .disabled(viewModel.isEquationEmpty)
 
             HStack(alignment: .top, spacing: 20) {
                 VStack(spacing: 2) {
@@ -37,5 +40,6 @@ struct MathKeyboard: View {
 struct MathKeyboard_Previews: PreviewProvider {
     static var previews: some View {
         MathKeyboard()
+            .environmentObject(EquationInputViewModel())
     }
 }

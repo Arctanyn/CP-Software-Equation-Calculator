@@ -20,6 +20,7 @@
 		945CF5A5299E95530018AA70 /* MathKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A4299E95530018AA70 /* MathKeyboard.swift */; };
 		945CF5A7299E95800018AA70 /* BasicMathOperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A6299E95800018AA70 /* BasicMathOperationButton.swift */; };
 		945CF5AA299E9CEB0018AA70 /* MathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A9299E9CEB0018AA70 /* MathOperation.swift */; };
+		9471A84A29A215D400DAB91D /* EquationInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471A84929A215D400DAB91D /* EquationInputViewModel.swift */; };
 		94D2512D299EB8C9000E260C /* AdvancedMathOperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2512C299EB8C9000E260C /* AdvancedMathOperationButton.swift */; };
 		94D2512F299EB975000E260C /* BasicMathOperationsPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */; };
 		94D25131299EBA88000E260C /* AdvancedMathOperationsPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D25130299EBA88000E260C /* AdvancedMathOperationsPad.swift */; };
@@ -42,6 +43,7 @@
 		945CF5A4299E95530018AA70 /* MathKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathKeyboard.swift; sourceTree = "<group>"; };
 		945CF5A6299E95800018AA70 /* BasicMathOperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMathOperationButton.swift; sourceTree = "<group>"; };
 		945CF5A9299E9CEB0018AA70 /* MathOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOperation.swift; sourceTree = "<group>"; };
+		9471A84929A215D400DAB91D /* EquationInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationInputViewModel.swift; sourceTree = "<group>"; };
 		94D2512C299EB8C9000E260C /* AdvancedMathOperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMathOperationButton.swift; sourceTree = "<group>"; };
 		94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMathOperationsPad.swift; sourceTree = "<group>"; };
 		94D25130299EBA88000E260C /* AdvancedMathOperationsPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMathOperationsPad.swift; sourceTree = "<group>"; };
@@ -143,7 +145,7 @@
 		945CF59D299E90FA0018AA70 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				945CF59E299E910A0018AA70 /* EquationInput.swift */,
+				9471A84829A215C400DAB91D /* EquationInput */,
 				945CF5AC299EA1FE0018AA70 /* MathKeyboard */,
 			);
 			path = View;
@@ -186,6 +188,15 @@
 				94D25130299EBA88000E260C /* AdvancedMathOperationsPad.swift */,
 			);
 			path = MathKeyboardPad;
+			sourceTree = "<group>";
+		};
+		9471A84829A215C400DAB91D /* EquationInput */ = {
+			isa = PBXGroup;
+			children = (
+				945CF59E299E910A0018AA70 /* EquationInput.swift */,
+				9471A84929A215D400DAB91D /* EquationInputViewModel.swift */,
+			);
+			path = EquationInput;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 				945CF5A5299E95530018AA70 /* MathKeyboard.swift in Sources */,
 				945CF5AA299E9CEB0018AA70 /* MathOperation.swift in Sources */,
 				945CF5A1299E913B0018AA70 /* NumberButton.swift in Sources */,
+				9471A84A29A215D400DAB91D /* EquationInputViewModel.swift in Sources */,
 				945CF587299E60620018AA70 /* String + Ext.swift in Sources */,
 				94D25131299EBA88000E260C /* AdvancedMathOperationsPad.swift in Sources */,
 				94D2512F299EB975000E260C /* BasicMathOperationsPad.swift in Sources */,

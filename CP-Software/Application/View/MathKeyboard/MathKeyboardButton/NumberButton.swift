@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct NumberButton: View {
+    @EnvironmentObject private var viewModel: EquationInputViewModel
     let number: Int
     
     var body: some View {
         Button {
-            
+            viewModel.addNumber(number)
         } label: {
             ZStack {
                 Rectangle()

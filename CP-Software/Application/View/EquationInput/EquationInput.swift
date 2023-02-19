@@ -8,18 +8,22 @@
 import SwiftUI
 
 struct EquationInput: View {
-    @State private var text = String()
-    
-    init() {
-        UITextField.appearance().inputView = UIView()
-    }
+    @StateObject private var viewModel = EquationInputViewModel()
     
     var body: some View {
         NavigationStack {
             VStack {
-                TextField("Type an equation...", text: $text)
-                    .font(.system(size: 22))
-                    .padding()
+                HStack {
+                    Text(
+                        viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation
+                    )
+                    .font(.system(size: 25))
+                    .foregroundColor(
+                        viewModel.isEquationEmpty ? .secondary : .primary
+                    )
+                    Spacer()
+                }
+                .padding()
                 
                 Spacer()
                 
@@ -28,6 +32,7 @@ struct EquationInput: View {
             }
             .navigationTitle("Calculator")
         }
+        .environmentObject(viewModel)
     }
 }
 

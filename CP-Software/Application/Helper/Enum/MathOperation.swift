@@ -23,9 +23,9 @@ enum BasicMathOperation {
     }
 }
 
-//MARK: - AdvancedMathOperations
+//MARK: - AdvancedMathOperation
 
-enum AdvancedMathOperations {
+enum AdvancedMathOperation {
     case pow
     case sqrt
     

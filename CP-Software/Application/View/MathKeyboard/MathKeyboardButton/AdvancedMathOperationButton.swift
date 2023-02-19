@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AdvancedMathOperationButton: View {
-    let mathOperation: AdvancedMathOperations
+    let mathOperation: AdvancedMathOperation
     
     var body: some View {
         Button {
