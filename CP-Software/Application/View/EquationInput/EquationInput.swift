@@ -19,7 +19,7 @@ struct EquationInput: View {
                             Text(
                                 viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation
                             )
-                            .font(.system(size: 25))
+                            .font(.system(size: 25, weight: .medium, design: .rounded))
                             .foregroundColor(
                                 viewModel.isEquationEmpty ? .secondary : .primary
                             )
@@ -36,6 +36,15 @@ struct EquationInput: View {
                 
                 Spacer()
                 
+                ZStack {
+                    if viewModel.isReadyToSolve {
+                        solveButton
+                    }
+                }
+                .transition(.opacity)
+                .animation(.easeIn(duration: 0.2), value: viewModel.isReadyToSolve)
+                
+                
                 MathKeyboard()
                     .padding(.bottom)
             }
@@ -43,6 +52,25 @@ struct EquationInput: View {
             .navigationTitle("Calculator")
         }
         .environmentObject(viewModel)
+    }
+    
+    private var solveButton: some View {
+        Button {
+            
+        } label: {
+            HStack {
+                Text("Solve")
+                Image(systemName: "arrow.right")
+            }
+            .font(.system(size: 22, weight: .semibold, design: .rounded))
+            .padding()
+            .padding(.horizontal)
+            .background {
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .fill(.pink)
+            }
+        }
+        .tint(.white)
     }
 }
 

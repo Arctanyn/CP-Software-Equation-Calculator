@@ -13,6 +13,8 @@ final class EquationInputViewModel: ObservableObject {
     
     @Published var equation = String()
     
+    var isReadyToSolve: Bool { equationComponents.contains("X") && equation.isBracketsBalanced() }
+    
     var isEquationEmpty: Bool {
         equationComponents.isEmpty
     }
