@@ -13,15 +13,24 @@ struct EquationInput: View {
     var body: some View {
         NavigationStack {
             VStack {
-                HStack {
-                    Text(
-                        viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation
-                    )
-                    .font(.system(size: 25))
-                    .foregroundColor(
-                        viewModel.isEquationEmpty ? .secondary : .primary
-                    )
-                    Spacer()
+                ScrollViewReader { scrollView in
+                    VStack {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            Text(
+                                viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation
+                            )
+                            .font(.system(size: 25))
+                            .foregroundColor(
+                                viewModel.isEquationEmpty ? .secondary : .primary
+                            )
+                            .id("Equation")
+                        }
+                        .onChange(of: viewModel.equation) { _ in
+                            withAnimation {
+                                scrollView.scrollTo("Equation", anchor: .trailing)
+                            }
+                        }
+                    }
                 }
                 .padding()
                 
@@ -30,6 +39,7 @@ struct EquationInput: View {
                 MathKeyboard()
                     .padding(.bottom)
             }
+            .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Calculator")
         }
         .environmentObject(viewModel)
