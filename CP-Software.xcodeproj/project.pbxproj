@@ -101,9 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				945CF57D299E5CE40018AA70 /* AppFile */,
-				945CF57E299E5CEC0018AA70 /* ViewController */,
+				9471A84B29A267C000DAB91D /* UI */,
 				945CF585299E60530018AA70 /* Helper */,
-				945CF59D299E90FA0018AA70 /* View */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -197,6 +196,15 @@
 				9471A84929A215D400DAB91D /* EquationInputViewModel.swift */,
 			);
 			path = EquationInput;
+			sourceTree = "<group>";
+		};
+		9471A84B29A267C000DAB91D /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				945CF57E299E5CEC0018AA70 /* ViewController */,
+				945CF59D299E90FA0018AA70 /* View */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

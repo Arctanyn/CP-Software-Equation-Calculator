@@ -20,7 +20,7 @@ final class EquationInputViewModel: ObservableObject {
     }
         
     @Published private var equationComponents = [String]()
-    @Published private var equationExpressionComponents = [String]() {
+    private var equationExpressionComponents = [String]() {
         didSet {
             print(equationExpressionComponents)
         }
@@ -136,7 +136,7 @@ private extension EquationInputViewModel {
     }
     
     func addClosingBracket() {
-        guard isLastNumber || isLastX || !isWithinEmptyBreackets else { return }
+        guard isLastNumber || isLastX || (!isWithinEmptyBreackets && !isLastContainsOpeningBracket) else { return }
         supplementEquation(withEquationComponents: ")", withEquationExpression: ")")
     }
     
@@ -178,5 +178,10 @@ private extension EquationInputViewModel {
         default:
             return false
         }
+    }
+    
+    var isLastContainsOpeningBracket: Bool {
+        guard let last = equationComponents.last else { return false }
+        return last.contains("(")
     }
 }
