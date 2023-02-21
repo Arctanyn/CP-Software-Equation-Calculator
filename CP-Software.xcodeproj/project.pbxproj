@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		945CF568299E5CA90018AA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF567299E5CA90018AA70 /* AppDelegate.swift */; };
 		945CF56A299E5CA90018AA70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF569299E5CA90018AA70 /* SceneDelegate.swift */; };
-		945CF56C299E5CA90018AA70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF56B299E5CA90018AA70 /* ViewController.swift */; };
 		945CF56F299E5CA90018AA70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 945CF56D299E5CA90018AA70 /* Main.storyboard */; };
 		945CF571299E5CAA0018AA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 945CF570299E5CAA0018AA70 /* Assets.xcassets */; };
 		945CF574299E5CAA0018AA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 945CF572299E5CAA0018AA70 /* LaunchScreen.storyboard */; };
@@ -20,6 +19,12 @@
 		945CF5A5299E95530018AA70 /* MathKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A4299E95530018AA70 /* MathKeyboard.swift */; };
 		945CF5A7299E95800018AA70 /* BasicMathOperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A6299E95800018AA70 /* BasicMathOperationButton.swift */; };
 		945CF5AA299E9CEB0018AA70 /* MathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A9299E9CEB0018AA70 /* MathOperation.swift */; };
+		945F262429A4CD35008626E8 /* SolutionMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F262329A4CD35008626E8 /* SolutionMethods.swift */; };
+		945F264229A4E326008626E8 /* DichotomySolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F264129A4E326008626E8 /* DichotomySolutionView.swift */; };
+		945F264529A4E352008626E8 /* DichotomySolutionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F264429A4E352008626E8 /* DichotomySolutionViewModel.swift */; };
+		945F264729A501B8008626E8 /* DichotomyIteration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F264629A501B8008626E8 /* DichotomyIteration.swift */; };
+		945F264929A509A7008626E8 /* ScrollableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F264829A509A7008626E8 /* ScrollableText.swift */; };
+		945F264B29A52B5D008626E8 /* DichotomyIterationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F264A29A52B5D008626E8 /* DichotomyIterationInfo.swift */; };
 		9471A84A29A215D400DAB91D /* EquationInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9471A84929A215D400DAB91D /* EquationInputViewModel.swift */; };
 		94D2512D299EB8C9000E260C /* AdvancedMathOperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2512C299EB8C9000E260C /* AdvancedMathOperationButton.swift */; };
 		94D2512F299EB975000E260C /* BasicMathOperationsPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */; };
@@ -31,7 +36,6 @@
 		945CF564299E5CA90018AA70 /* CP-Software.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CP-Software.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		945CF567299E5CA90018AA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		945CF569299E5CA90018AA70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		945CF56B299E5CA90018AA70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		945CF56E299E5CA90018AA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		945CF570299E5CAA0018AA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		945CF573299E5CAA0018AA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +47,12 @@
 		945CF5A4299E95530018AA70 /* MathKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathKeyboard.swift; sourceTree = "<group>"; };
 		945CF5A6299E95800018AA70 /* BasicMathOperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMathOperationButton.swift; sourceTree = "<group>"; };
 		945CF5A9299E9CEB0018AA70 /* MathOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOperation.swift; sourceTree = "<group>"; };
+		945F262329A4CD35008626E8 /* SolutionMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionMethods.swift; sourceTree = "<group>"; };
+		945F264129A4E326008626E8 /* DichotomySolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichotomySolutionView.swift; sourceTree = "<group>"; };
+		945F264429A4E352008626E8 /* DichotomySolutionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichotomySolutionViewModel.swift; sourceTree = "<group>"; };
+		945F264629A501B8008626E8 /* DichotomyIteration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichotomyIteration.swift; sourceTree = "<group>"; };
+		945F264829A509A7008626E8 /* ScrollableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableText.swift; sourceTree = "<group>"; };
+		945F264A29A52B5D008626E8 /* DichotomyIterationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichotomyIterationInfo.swift; sourceTree = "<group>"; };
 		9471A84929A215D400DAB91D /* EquationInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationInputViewModel.swift; sourceTree = "<group>"; };
 		94D2512C299EB8C9000E260C /* AdvancedMathOperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMathOperationButton.swift; sourceTree = "<group>"; };
 		94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMathOperationsPad.swift; sourceTree = "<group>"; };
@@ -61,6 +71,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		944B4B2029A4B1E300B8745F /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		945CF55B299E5CA90018AA70 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				945CF57D299E5CE40018AA70 /* AppFile */,
+				945F264C29A52B8C008626E8 /* Model */,
 				9471A84B29A267C000DAB91D /* UI */,
 				945CF585299E60530018AA70 /* Helper */,
 			);
@@ -116,17 +134,10 @@
 			path = AppFile;
 			sourceTree = "<group>";
 		};
-		945CF57E299E5CEC0018AA70 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				945CF56B299E5CA90018AA70 /* ViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		945CF585299E60530018AA70 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				944B4B2029A4B1E300B8745F /* Protocol */,
 				945CF5A8299E9CDB0018AA70 /* Enum */,
 				945CF588299E60960018AA70 /* Extension */,
 			);
@@ -144,8 +155,9 @@
 		945CF59D299E90FA0018AA70 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9471A84829A215C400DAB91D /* EquationInput */,
 				945CF5AC299EA1FE0018AA70 /* MathKeyboard */,
+				945F264629A501B8008626E8 /* DichotomyIteration.swift */,
+				945F264829A509A7008626E8 /* ScrollableText.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -154,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				945CF5A9299E9CEB0018AA70 /* MathOperation.swift */,
+				945F262329A4CD35008626E8 /* SolutionMethods.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -189,6 +202,32 @@
 			path = MathKeyboardPad;
 			sourceTree = "<group>";
 		};
+		945F262629A4CEFD008626E8 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				9471A84829A215C400DAB91D /* EquationInput */,
+				945F264329A4E33F008626E8 /* DichotomyMethodSolution */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		945F264329A4E33F008626E8 /* DichotomyMethodSolution */ = {
+			isa = PBXGroup;
+			children = (
+				945F264129A4E326008626E8 /* DichotomySolutionView.swift */,
+				945F264429A4E352008626E8 /* DichotomySolutionViewModel.swift */,
+			);
+			path = DichotomyMethodSolution;
+			sourceTree = "<group>";
+		};
+		945F264C29A52B8C008626E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				945F264A29A52B5D008626E8 /* DichotomyIterationInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9471A84829A215C400DAB91D /* EquationInput */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,7 +240,7 @@
 		9471A84B29A267C000DAB91D /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				945CF57E299E5CEC0018AA70 /* ViewController */,
+				945F262629A4CEFD008626E8 /* Module */,
 				945CF59D299E90FA0018AA70 /* View */,
 			);
 			path = UI;
@@ -223,6 +262,8 @@
 			dependencies = (
 			);
 			name = "CP-Software";
+			packageProductDependencies = (
+			);
 			productName = "CP-Software";
 			productReference = 945CF564299E5CA90018AA70 /* CP-Software.app */;
 			productType = "com.apple.product-type.application";
@@ -251,6 +292,8 @@
 				Base,
 			);
 			mainGroup = 945CF55B299E5CA90018AA70;
+			packageReferences = (
+			);
 			productRefGroup = 945CF565299E5CA90018AA70 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -281,18 +324,23 @@
 				945CF5A5299E95530018AA70 /* MathKeyboard.swift in Sources */,
 				945CF5AA299E9CEB0018AA70 /* MathOperation.swift in Sources */,
 				945CF5A1299E913B0018AA70 /* NumberButton.swift in Sources */,
+				945F264929A509A7008626E8 /* ScrollableText.swift in Sources */,
+				945F262429A4CD35008626E8 /* SolutionMethods.swift in Sources */,
 				9471A84A29A215D400DAB91D /* EquationInputViewModel.swift in Sources */,
 				945CF587299E60620018AA70 /* String + Ext.swift in Sources */,
 				94D25131299EBA88000E260C /* AdvancedMathOperationsPad.swift in Sources */,
 				94D2512F299EB975000E260C /* BasicMathOperationsPad.swift in Sources */,
 				945CF59F299E910A0018AA70 /* EquationInput.swift in Sources */,
-				945CF56C299E5CA90018AA70 /* ViewController.swift in Sources */,
 				945CF5A7299E95800018AA70 /* BasicMathOperationButton.swift in Sources */,
+				945F264529A4E352008626E8 /* DichotomySolutionViewModel.swift in Sources */,
 				945CF568299E5CA90018AA70 /* AppDelegate.swift in Sources */,
 				94D25133299EBC0B000E260C /* AuxiliaryMathOperationButton.swift in Sources */,
+				945F264B29A52B5D008626E8 /* DichotomyIterationInfo.swift in Sources */,
 				945CF5A3299E92760018AA70 /* NumbersPad.swift in Sources */,
 				945CF56A299E5CA90018AA70 /* SceneDelegate.swift in Sources */,
 				94D2512D299EB8C9000E260C /* AdvancedMathOperationButton.swift in Sources */,
+				945F264229A4E326008626E8 /* DichotomySolutionView.swift in Sources */,
+				945F264729A501B8008626E8 /* DichotomyIteration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,21 +12,27 @@ final class EquationInputViewModel: ObservableObject {
     //MARK: Properties
     
     @Published var equation = String()
+    @Published private var equationComponents = [String]()
     
+    let solutionMethods = SolutionMethods.allCases
+
     var isReadyToSolve: Bool { equationComponents.contains("X") && equation.isBracketsBalanced() }
     
     var isEquationEmpty: Bool {
         equationComponents.isEmpty
     }
-        
-    @Published private var equationComponents = [String]()
-    private var equationExpressionComponents = [String]() {
-        didSet {
-            print(equationExpressionComponents)
-        }
-    }
+
+    private var equationExpressionString: String { equationExpressionComponents.joined() }
+    private var equationExpressionComponents = [String]()
     
     private var allowsDot = true
+    
+    var viewModelForDichotomySolution: DichotomySolutionViewModel {
+        DichotomySolutionViewModel(
+            equation: equation,
+            equationExpression: equationExpressionString.expression
+        )
+    }
     
     //MARK: - Initialization
     
@@ -39,7 +45,7 @@ final class EquationInputViewModel: ObservableObject {
     }
     
     //MARK: - Methods
-    
+        
     func addNumber(_ number: Int) {
         guard !isLastClosingBracketOrX else { return }
         

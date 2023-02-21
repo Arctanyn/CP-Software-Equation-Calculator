@@ -9,27 +9,20 @@ import SwiftUI
 
 struct EquationInput: View {
     @StateObject private var viewModel = EquationInputViewModel()
+    @State private var isConfirmationPresented = false
+    private let equationTextId = 0
     
     var body: some View {
         NavigationStack {
             VStack {
                 ScrollViewReader { scrollView in
-                    VStack {
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            Text(
-                                viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation
-                            )
-                            .font(.system(size: 25, weight: .medium, design: .rounded))
-                            .foregroundColor(
-                                viewModel.isEquationEmpty ? .secondary : .primary
-                            )
-                            .id("Equation")
-                        }
-                        .onChange(of: viewModel.equation) { _ in
-                            withAnimation {
-                                scrollView.scrollTo("Equation", anchor: .trailing)
-                            }
-                        }
+                    ScrollableText(
+                        scrollId: equationTextId,
+                        text: viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation,
+                        textColor: viewModel.isEquationEmpty ? .secondary : .primary
+                    )
+                    .onChange(of: viewModel.equation) { _ in
+                        scrollView.scrollTo(equationTextId, anchor: .trailing)
                     }
                 }
                 .padding()
@@ -43,26 +36,33 @@ struct EquationInput: View {
                 }
                 .transition(.opacity)
                 .animation(.easeIn(duration: 0.2), value: viewModel.isReadyToSolve)
-                
-                
+                                
                 MathKeyboard()
                     .padding(.bottom)
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Calculator")
+            .navigationDestination(for: SolutionMethods.self) { method in
+                switch method {
+                case .dichotomy:
+                    DichotomySolutionView(viewModel: viewModel.viewModelForDichotomySolution)
+                }
+            }
         }
+        .tint(.pink)
         .environmentObject(viewModel)
     }
     
     private var solveButton: some View {
         Button {
-            
+            isConfirmationPresented.toggle()
         } label: {
             HStack {
-                Text("Solve")
+                Text("Show solution")
                 Image(systemName: "arrow.right")
             }
-            .font(.system(size: 22, weight: .semibold, design: .rounded))
+            .font(.title2)
+            .fontWeight(.semibold)
             .padding()
             .padding(.horizontal)
             .background {
@@ -70,6 +70,13 @@ struct EquationInput: View {
                     .fill(.pink)
             }
         }
+        .confirmationDialog("Solution methods", isPresented: $isConfirmationPresented, actions: {
+            ForEach(viewModel.solutionMethods, id: \.self) { solutionMehod in
+                NavigationLink(solutionMehod.rawValue, value: solutionMehod)
+            }
+        }, message: {
+            Text("Choose a method for solving the equation")
+        })
         .tint(.white)
     }
 }
