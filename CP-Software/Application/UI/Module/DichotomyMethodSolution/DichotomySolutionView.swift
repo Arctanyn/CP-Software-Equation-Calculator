@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct DichotomySolutionView: View {
+    
+    enum TextFieldInFocus {
+        case low
+        case high
+    }
+    
     @ObservedObject var viewModel: DichotomySolutionViewModel
     @State private var isSolveButtonHidden = false
+    @FocusState var textFieldFocus: TextFieldInFocus?
     
     var body: some View {
         List {
@@ -34,12 +41,17 @@ struct DichotomySolutionView: View {
                             title: "Low",
                             text: $viewModel.lowSearchRangeText
                         )
+                        .focused($textFieldFocus, equals: .low)
+                        .onSubmit {
+                            textFieldFocus = .high
+                        }
                         
                         Text("to")
                         rangeTextField(
                             title: "High",
                             text: $viewModel.highSearchRangeText
                         )
+                        .focused($textFieldFocus, equals: .high)
                     }
                     .font(.headline)
                 }
@@ -68,9 +80,9 @@ struct DichotomySolutionView: View {
                     .foregroundColor(.pink)
                 }
             }
-            
-            
-            
+        }
+        .onTapGesture {
+            endEditing()
         }
         .navigationBarTitleDisplayMode(.large)
         .navigationTitle("Dichotomy Method")
@@ -88,10 +100,15 @@ struct DichotomySolutionView: View {
             }
         }
     }
-    
-    private var solveButton: some View {
+}
+
+//MARK: - Private
+
+private extension DichotomySolutionView {
+    var solveButton: some View {
         Button {
             viewModel.calculate()
+            endEditing()
         } label: {
             Text("Solve")
                 .font(.title2)
@@ -107,7 +124,7 @@ struct DichotomySolutionView: View {
         .tint(.white)
     }
     
-    private func rangeTextField(title: String, text: Binding<String>) -> some View {
+    func rangeTextField(title: String, text: Binding<String>) -> some View {
         TextField(title, text: text)
             .foregroundColor(.pink)
             .multilineTextAlignment(.center)
@@ -116,7 +133,13 @@ struct DichotomySolutionView: View {
             .textFieldStyle(.roundedBorder)
             .keyboardType(.numbersAndPunctuation)
     }
+    
+    func endEditing() {
+        UIApplication.shared.endEditing()
+    }
 }
+
+//MARK: - PreviewProvider
 
 struct DichotomyMethodSolutionView_Previews: PreviewProvider {
     

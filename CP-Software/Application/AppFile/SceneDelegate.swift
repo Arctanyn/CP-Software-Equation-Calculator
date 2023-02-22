@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = UIHostingController(rootView: EquationInput())
         window?.makeKeyAndVisible()
+        window?.tintColor = .systemPink
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

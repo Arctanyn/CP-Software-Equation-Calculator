@@ -64,7 +64,6 @@ final class DichotomySolutionViewModel: ObservableObject {
             x != 0,
             let value = equationExpression.expressionValue(with: ["X": x], context: nil) as? Double
         else { fatalError() }
-        
         return value
     }
 }
