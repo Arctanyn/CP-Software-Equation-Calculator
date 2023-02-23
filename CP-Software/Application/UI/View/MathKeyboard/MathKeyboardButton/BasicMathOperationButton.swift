@@ -24,7 +24,6 @@ struct BasicMathOperationButton: View {
             }
         }
         .tint(.primary)
-        .frame(width: 65, height: 65)
     }
 }
 

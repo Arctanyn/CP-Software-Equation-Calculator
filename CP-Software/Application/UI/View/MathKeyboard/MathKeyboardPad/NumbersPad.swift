@@ -12,16 +12,19 @@ struct NumbersPad: View {
         VStack(spacing: 2) {
             numberButtons(withNumbers: 7..<10)
             numberButtons(withNumbers: 4..<7)
+            numberButtons(withNumbers: 1..<4)
             
-            VStack(spacing: 2) {
-                numberButtons(withNumbers: 1..<4)
-                
+            GeometryReader { proxy in
                 HStack(spacing: 2) {
                     NumberButton(number: 0)
-                        .frame(width: 132, height: 65)
+                        .frame(
+                            width: proxy.size.width * 2 / 3
+                        )
                     
                     AuxiliaryMathOperationButton(mathOperation: .dot)
-                        .frame(width: 65, height: 65)
+                        .frame(
+                            width: proxy.size.width * 1 / 3
+                        )
                 }
             }
         }
@@ -31,7 +34,6 @@ struct NumbersPad: View {
         HStack(spacing: 2) {
             ForEach(numbers, id: \.self) {
                 NumberButton(number: $0)
-                    .frame(width: 65, height: 65)
             }
         }
     }

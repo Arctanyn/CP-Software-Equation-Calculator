@@ -15,13 +15,13 @@ final class EquationInputViewModel: ObservableObject {
     @Published private var equationComponents = [String]()
     
     let solutionMethods = SolutionMethods.allCases
-
+    
     var isReadyToSolve: Bool { equationComponents.contains("X") && equation.isBracketsBalanced() }
     
     var isEquationEmpty: Bool {
         equationComponents.isEmpty
     }
-
+    
     private var equationExpressionString: String { equationExpressionComponents.joined() }
     private var equationExpressionComponents = [String]()
     
@@ -45,7 +45,7 @@ final class EquationInputViewModel: ObservableObject {
     }
     
     //MARK: - Methods
-        
+    
     func addNumber(_ number: Int) {
         guard !isLastClosingBracketOrX else { return }
         
@@ -89,9 +89,9 @@ final class EquationInputViewModel: ObservableObject {
                 supplementEquation(withEquationComponents: "sqrt(", withEquationExpression: "sqrt(")
             }
         }
-
+        
     }
-
+    
     func addAuxiliaryOperation(_ operation: AuxiliaryMathOperation) {
         switch operation {
         case .dot:
@@ -174,7 +174,7 @@ private extension EquationInputViewModel {
     var isLastNumberOrClosingBracketOrX: Bool { isLastNumberOrClosingBracket || isLastX }
     
     var isXPassedChecks: Bool { isEquationEmpty || (!isLastNumber && !isLastClosingBracket && !isLastX) }
-        
+    
     var isLastBasicOperation: Bool {
         guard let last = equationComponents.last else { return false }
         

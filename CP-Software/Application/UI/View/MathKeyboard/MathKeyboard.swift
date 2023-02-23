@@ -16,22 +16,26 @@ struct MathKeyboard: View {
                 viewModel.removeLastOperation()
             } label: {
                 Image(systemName: "delete.left")
-                    .font(.system(size: 30))
+                    .font(.largeTitle)
                     .padding()
             }
             .tint(.primary)
             .disabled(viewModel.isEquationEmpty)
-
-            HStack(alignment: .top, spacing: 20) {
-                VStack(spacing: 2) {
-                    AdvancedMathOperationButton(mathOperation: .pow)
-                    AdvancedMathOperationButton(mathOperation: .sqrt)
-                    AuxiliaryMathOperationButton(mathOperation: .roundBracket)
-                    AuxiliaryMathOperationButton(mathOperation: .x)
+            
+            GeometryReader { proxy in
+                HStack(alignment: .top, spacing: 2) {
+                    VStack(spacing: 2) {
+                        AdvancedMathOperationButton(mathOperation: .pow)
+                        AdvancedMathOperationButton(mathOperation: .sqrt)
+                        AuxiliaryMathOperationButton(mathOperation: .roundBracket)
+                        AuxiliaryMathOperationButton(mathOperation: .x)
+                    }
+                    
+                    NumbersPad()
+                        .frame(width: proxy.size.width * 2 / 3)
+                    
+                    BasicMathOperationsPad()
                 }
-                
-                NumbersPad()
-                BasicMathOperationsPad()
             }
         }
     }

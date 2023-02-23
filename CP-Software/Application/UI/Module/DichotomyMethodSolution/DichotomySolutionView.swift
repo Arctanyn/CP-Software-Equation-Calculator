@@ -23,16 +23,22 @@ struct DichotomySolutionView: View {
             Section {
                 VStack(alignment: .leading, spacing: 20) {
                     ScrollView(.horizontal) {
-                        Text(viewModel.equation)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.pink)
-                            .padding(.vertical)
+                        HStack {
+                            Text("F(x) =")
+                            Text(viewModel.equation)
+                                .foregroundColor(.pink)
+                        }
+                        .font(.title2)
+                        .fontWeight(.medium)
+                        .padding(.vertical)
+                        
                     }
                     
                     Stepper(value: $viewModel.epsilon, in: 0.001...1, step: 0.001) {
-                        Text("Accuracy ε = " + String(format: "%.3f", viewModel.epsilon))
-                            .font(.headline)
+                        Text(
+                            "Accuracy ε = " + String(format: "%.3f", viewModel.epsilon)
+                        )
+                        .font(.headline)
                     }
                     
                     HStack {

@@ -24,7 +24,6 @@ struct AuxiliaryMathOperationButton: View {
             }
         }
         .tint(.secondary.opacity(0.2))
-        .frame(width: 65, height: 65)
     }
 }
 

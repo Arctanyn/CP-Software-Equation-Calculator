@@ -15,14 +15,22 @@ struct EquationInput: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ScrollViewReader { scrollView in
-                    ScrollableText(
-                        scrollId: equationTextId,
-                        text: viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation,
-                        textColor: viewModel.isEquationEmpty ? .secondary : .primary
-                    )
-                    .onChange(of: viewModel.equation) { _ in
-                        scrollView.scrollTo(equationTextId, anchor: .trailing)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    ScrollViewReader { scrollView in
+                        Text(
+                            viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation
+                        )
+                        .font(.title)
+                        .fontWeight(.medium)
+                        .foregroundColor(
+                            viewModel.isEquationEmpty ? .secondary : .primary
+                        )
+                        .padding(.vertical)
+                        .id(equationTextId)
+                        .onChange(of: viewModel.equation) { _ in
+                            scrollView.scrollTo(equationTextId, anchor: .trailing
+                            )
+                        }
                     }
                 }
                 .padding()
@@ -36,9 +44,13 @@ struct EquationInput: View {
                 }
                 .transition(.opacity)
                 .animation(.easeIn(duration: 0.2), value: viewModel.isReadyToSolve)
-                                
+                
                 MathKeyboard()
-                    .padding(.bottom)
+                    .frame(maxHeight: 400)
+                    .padding(.bottom, 10)
+                    .padding(.horizontal, 10)
+                
+                
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Calculator")

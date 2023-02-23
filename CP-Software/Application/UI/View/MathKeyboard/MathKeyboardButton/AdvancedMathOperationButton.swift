@@ -24,7 +24,6 @@ struct AdvancedMathOperationButton: View {
             }
         }
         .tint(.secondary.opacity(0.4))
-        .frame(width: 65, height: 65)
     }
 }
 
