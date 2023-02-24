@@ -20,4 +20,10 @@ extension NSExpression {
         let h = 0.0000001
         return (expressionFunction(x: x + h) - expressionFunction(x: x)) / h
     }
+    
+    func derivativeSecond(at x: Double) -> Double {
+        let h = 0.0000001
+//        (fn(x + h) - 2 * fn(x) + fn(x - h)) / (h * h)
+        return (expressionFunction(x: x + h) - 2 * expressionFunction(x: x) + expressionFunction(x: x - h)) / pow(h, 2)
+    }
 }

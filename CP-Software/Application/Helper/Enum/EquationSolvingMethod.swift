@@ -6,6 +6,7 @@
 //
 
 enum EquationSolvingMethod: String, CaseIterable {
-    case dichotomy = "The Dichotomy Method"
-    case simpleIterations = "Simple Iterations Method"
+    case dichotomy = "Dichotomy"
+    case simpleIterations = "Simple Iterations"
+    case newton = "Newton"
 }

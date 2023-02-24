@@ -45,6 +45,9 @@ final class EquationSolvingService {
         case .simpleIterations:
             let method = createSimpleIterationMethod()
             return method.solve()
+        case .newton:
+            let method = createNewtonMethod()
+            return method.solve()
         }
     }
 }
@@ -54,10 +57,11 @@ final class EquationSolvingService {
 private extension EquationSolvingService {
     func createDichotomyMethod() -> DichotomyMethod {
         DichotomyMethod(
+            equation: self.equation,
             lowRangeLimit: self.lowRangeLimit,
             highRangeLimit: self.highRangeLimit,
-            epsilon: self.epsilon,
-            function: self.function)
+            epsilon: self.epsilon
+        )
     }
     
     func createSimpleIterationMethod() -> SimpleIterationMethod {
@@ -65,8 +69,16 @@ private extension EquationSolvingService {
             equation: self.equation,
             lowRangeLimit: self.lowRangeLimit,
             highRangeLimit: self.highRangeLimit,
-            epsilon: self.epsilon,
-            function: function
+            epsilon: self.epsilon
+        )
+    }
+    
+    func createNewtonMethod() -> NewtonSolutionMethod {
+        NewtonSolutionMethod(
+            equation: self.equation,
+            lowRangeLimit: self.lowRangeLimit,
+            highRangeLimit: self.highRangeLimit,
+            epsilon: self.epsilon
         )
     }
 }

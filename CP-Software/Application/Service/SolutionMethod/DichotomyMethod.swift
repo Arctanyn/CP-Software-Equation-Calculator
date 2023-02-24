@@ -7,27 +7,27 @@
 
 import Foundation
 
-class DichotomyMethod {
+final class DichotomyMethod {
 
     //MARK: Properties
     
+    let equation: NSExpression
     let lowRangeLimit: Double
     let highRangeLimit: Double
     let epsilon: Double
-    let function: ((Double) -> Double)
     
     private var iterationsInfo: [DichotomyIterationInfo] = []
     
     //MARK: - Initialization
-    
-    init(lowRangeLimit: Double,
+
+    init(equation: NSExpression,
+         lowRangeLimit: Double,
          highRangeLimit: Double,
-         epsilon: Double,
-         function: @escaping (Double) -> Double) {
+         epsilon: Double) {
+        self.equation = equation
         self.lowRangeLimit = lowRangeLimit
         self.highRangeLimit = highRangeLimit
         self.epsilon = epsilon
-        self.function = function
     }
     
     //MARK: - Methods
@@ -42,31 +42,29 @@ class DichotomyMethod {
 
 private extension DichotomyMethod {
     func dichotomy(a: Double, b: Double, eps: Double) -> Double? {
-        let almostZero = 0.000000000000001
-        
-        var newA = a != 0 ? a : almostZero
-        var newB = b != 0 ? b : almostZero
+        var newA = a != 0 ? a : Double.almostZero
+        var newB = b != 0 ? b : Double.almostZero
         
         var iteration = 0
         var result: Double?
 
-        while abs(function(newB) - function(newA)) > eps {
+        while abs(equation.expressionFunction(x: newB) - equation.expressionFunction(x: newA)) > eps {
             iteration += 1
             
             let midValue = (newA + newB) / 2
             
             iterationsInfo.append(
                 .init(
-                    iteraction: iteration,
+                    iteration: iteration,
                     a: newA, b: newB,
                     x: midValue
                 )
             )
             
-            if midValue == 0 || abs(function(midValue)) < eps {
+            if midValue == 0 || abs(equation.expressionFunction(x: midValue)) < eps {
                 result = midValue
                 break
-            } else if function(newA) * function(midValue) < 0 {
+            } else if equation.expressionFunction(x: newA) * equation.expressionFunction(x: midValue) < 0 {
                 newB = midValue
             } else {
                 newA = midValue

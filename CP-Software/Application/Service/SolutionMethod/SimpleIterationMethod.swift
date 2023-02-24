@@ -15,7 +15,6 @@ final class SimpleIterationMethod {
     let lowRangeLimit: Double
     let highRangeLimit: Double
     let epsilon: Double
-    let function: ((Double) -> Double)
     
     private var iterationsInfo: [SimpleIterationInfo] = []
     
@@ -24,13 +23,11 @@ final class SimpleIterationMethod {
     init(equation: NSExpression,
          lowRangeLimit: Double,
          highRangeLimit: Double,
-         epsilon: Double,
-         function: @escaping (Double) -> Double) {
+         epsilon: Double) {
         self.equation = equation
         self.lowRangeLimit = lowRangeLimit
         self.highRangeLimit = highRangeLimit
         self.epsilon = epsilon
-        self.function = function
     }
     
     //MARK: - Methods
@@ -79,16 +76,14 @@ private extension SimpleIterationMethod {
     }
     
     func chooseStartPoint(between a: Double, and b: Double) -> Double {
-        let almostZero = 0.000000000000001
-        
         if a < b, a < 0, abs(a) >= abs(b) {
-            return a != 0 ? a : almostZero
+            return a != 0 ? a : Double.almostZero
         } else {
-            return b != 0 ? b : almostZero
+            return b != 0 ? b : Double.almostZero
         }
     }
     
     func fi(x: Double, m: Double) -> Double {
-        x - function(x) / m
+        x - equation.expressionFunction(x: x) / m
     }
 }

@@ -13,7 +13,7 @@ struct DichotomyIteration: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                Text("Iteration \(iterationInfo.iteraction)")
+                Text("Iteration \(iterationInfo.iteration)")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .underline()
@@ -27,7 +27,7 @@ struct DichotomyIteration: View {
                     Text("X ∈ [\(iterationInfo.a); \(iterationInfo.b)]")
                 }
                 
-                Text("X\(iterationInfo.iteraction - 1) = \(iterationInfo.x)")
+                Text("X = \(iterationInfo.x)")
                     .foregroundColor(.pink)
                     .fontWeight(.bold)
             }
@@ -41,7 +41,7 @@ struct DichotomyIterationView_Previews: PreviewProvider {
     static var previews: some View {
         DichotomyIteration(
             iterationInfo: .init(
-                iteraction: 1,
+                iteration: 1,
                 a: 2,
                 b: 0,
                 x: 1.40556

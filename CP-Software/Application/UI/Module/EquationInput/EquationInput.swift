@@ -53,14 +53,7 @@ struct EquationInput: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Calculator")
             .navigationDestination(for: EquationSolvingMethod.self) { solutionMethod in
-                let viewModel = viewModel.viewModelForEquationSolution(with: solutionMethod)
-                
-                switch solutionMethod {
-                case .dichotomy:
-                    DichotomyMethodSolution(viewModel: viewModel)
-                case .simpleIterations:
-                    SimpleIterationSolution(viewModel: viewModel)
-                }
+                EquationSolution(viewModel: viewModel.viewModelForEquationSolution(with: solutionMethod))
             }
         }
         .tint(.pink)

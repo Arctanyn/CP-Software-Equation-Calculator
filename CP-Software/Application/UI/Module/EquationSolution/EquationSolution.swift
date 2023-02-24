@@ -8,13 +8,74 @@
 import SwiftUI
 
 struct EquationSolution: View {
+    @StateObject var viewModel: EquationSolutionViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            Section {
+                SolutionSearchParametersRepresentation()
+            }
+            .environmentObject(viewModel)
+            
+            if !viewModel.iterationsInfo.isEmpty {
+                Section {
+                    SolvingSteps(
+                        solvingMethod: viewModel.solvingMethod,
+                        iterationsInfo: viewModel.iterationsInfo
+                    )
+                } footer: {
+                    VStack(alignment: .leading) {
+                        if let answer = viewModel.answer {
+                            Answer(
+                                answer: answer,
+                                functionValue: viewModel.getFunctionValue(with: answer)
+                            )
+                        } else {
+                            Text("No solution")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundColor(.pink)
+                        }
+                        
+                        Spacer()
+                    }
+                    .frame(height: 200)
+                }
+            }
+        }
+        .onTapGesture {
+            endEditing()
+        }
+        .navigationBarTitleDisplayMode(.large)
+        .navigationTitle(viewModel.solvingMethod.rawValue)
+        .overlay {
+            VStack {
+                Spacer()
+                ZStack {
+                    if viewModel.isSolveButtonEnable {
+                        SolveButton {
+                            viewModel.solve()
+                            endEditing()
+                        }
+                        .padding()
+                    }
+                }
+                .animation(.default, value: viewModel.isSolveButtonEnable)
+                .transition(.opacity)
+            }
+        }
     }
 }
 
 struct EquationSolution_Previews: PreviewProvider {
+    static let equation = "X**4-2*X-4"
     static var previews: some View {
-        EquationSolution()
+        EquationSolution(
+            viewModel: EquationSolutionViewModel(
+                equation: equation,
+                equationExpression: equation.expression,
+                solvingMethod: .dichotomy
+            )
+        )
     }
 }
