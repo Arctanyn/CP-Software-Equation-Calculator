@@ -7,7 +7,6 @@
 
 struct DichotomyIterationInfo {
     let iteraction: Int
-    let epsilon: Double
     let a: Double
     let b: Double
     let x: Double

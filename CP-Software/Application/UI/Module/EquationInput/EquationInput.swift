@@ -49,15 +49,17 @@ struct EquationInput: View {
                     .frame(maxHeight: 400)
                     .padding(.bottom, 10)
                     .padding(.horizontal, 10)
-                
-                
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Calculator")
-            .navigationDestination(for: SolutionMethods.self) { method in
-                switch method {
+            .navigationDestination(for: EquationSolvingMethod.self) { solutionMethod in
+                let viewModel = viewModel.viewModelForEquationSolution(with: solutionMethod)
+                
+                switch solutionMethod {
                 case .dichotomy:
-                    DichotomySolutionView(viewModel: viewModel.viewModelForDichotomySolution)
+                    DichotomyMethodSolutionView(viewModel: viewModel)
+                case .simpleIterations:
+                    SimpleIterationSolutionView(viewModel: viewModel)
                 }
             }
         }

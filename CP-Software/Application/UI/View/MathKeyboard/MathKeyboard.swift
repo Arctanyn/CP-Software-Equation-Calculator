@@ -11,16 +11,11 @@ struct MathKeyboard: View {
     @EnvironmentObject private var viewModel: EquationInputViewModel
     
     var body: some View {
-        VStack(alignment: .trailing) {
-            Button {
-                viewModel.removeLastOperation()
-            } label: {
-                Image(systemName: "delete.left")
-                    .font(.largeTitle)
-                    .padding()
+        VStack {
+            HStack {
+                Spacer()
+                deleteButton
             }
-            .tint(.primary)
-            .disabled(viewModel.isEquationEmpty)
             
             GeometryReader { proxy in
                 HStack(alignment: .top, spacing: 2) {
@@ -38,6 +33,22 @@ struct MathKeyboard: View {
                 }
             }
         }
+    }
+}
+
+//MARK: - Private
+
+private extension MathKeyboard {
+    var deleteButton: some View {
+        Button {
+            viewModel.removeLastOperation()
+        } label: {
+            Image(systemName: "delete.left")
+                .font(.largeTitle)
+                .padding()
+        }
+        .tint(.primary)
+        .disabled(viewModel.isEquationEmpty)
     }
 }
 

@@ -42,10 +42,9 @@ struct DichotomyIterationView_Previews: PreviewProvider {
         DichotomyIteration(
             iterationInfo: .init(
                 iteraction: 1,
-                epsilon: 0.001,
                 a: 2,
                 b: 0,
-                x: 1
+                x: 1.40556
             )
         )
     }
