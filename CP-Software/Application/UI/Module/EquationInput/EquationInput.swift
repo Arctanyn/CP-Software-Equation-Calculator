@@ -57,9 +57,9 @@ struct EquationInput: View {
                 
                 switch solutionMethod {
                 case .dichotomy:
-                    DichotomyMethodSolutionView(viewModel: viewModel)
+                    DichotomyMethodSolution(viewModel: viewModel)
                 case .simpleIterations:
-                    SimpleIterationSolutionView(viewModel: viewModel)
+                    SimpleIterationSolution(viewModel: viewModel)
                 }
             }
         }

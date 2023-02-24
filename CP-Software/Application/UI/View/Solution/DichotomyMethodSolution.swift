@@ -1,14 +1,14 @@
 //
-//  SimpleIterationSolutionView.swift
+//  DichotomyMethodSolution.swift
 //  CP-Software
 //
-//  Created by Малиль Дугулюбгов on 23.02.2023.
+//  Created by Малиль Дугулюбгов on 21.02.2023.
 //
 
 import SwiftUI
 
-struct SimpleIterationSolutionView: View {
-    @ObservedObject var viewModel: EquationSolutionViewModel
+struct DichotomyMethodSolution: View {
+    @StateObject var viewModel: EquationSolutionViewModel
     
     var body: some View {
         List {
@@ -16,12 +16,11 @@ struct SimpleIterationSolutionView: View {
                 SolutionSearchParametersRepresentation()
             }
             .environmentObject(viewModel)
-
             
-            if let simpleIterationsInfo = viewModel.iterationsInfo as? [SimpleIterationInfo], !simpleIterationsInfo.isEmpty {
+            if let dichotomyIterations = viewModel.iterationsInfo as? [DichotomyIterationInfo], !dichotomyIterations.isEmpty {
                 Section {
-                    ForEach(simpleIterationsInfo, id: \.iteration) { info in
-                        SimpleIteration(iterationInfo: info)
+                    ForEach(dichotomyIterations, id: \.iteraction) { iteration in
+                        DichotomyIteration(iterationInfo: iteration)
                     }
                 } footer: {
                     VStack(alignment: .leading) {
@@ -46,7 +45,7 @@ struct SimpleIterationSolutionView: View {
             endEditing()
         }
         .navigationBarTitleDisplayMode(.large)
-        .navigationTitle("Simple Iterations")
+        .navigationTitle("Dichotomy Method")
         .overlay {
             VStack {
                 Spacer()
@@ -68,14 +67,14 @@ struct SimpleIterationSolutionView: View {
 
 //MARK: - PreviewProvider
 
-struct SimpleIterationSolutionView_Previews: PreviewProvider {
+struct DichotomyMethodSolutionView_Previews: PreviewProvider {
     static let equation = "x^2+10"
     static var previews: some View {
-        SimpleIterationSolutionView(
+        DichotomyMethodSolution(
             viewModel: EquationSolutionViewModel(
                 equation: equation,
                 equationExpression: equation.expression,
-                solvingMethod: .simpleIterations
+                solvingMethod: .dichotomy
             )
         )
     }
