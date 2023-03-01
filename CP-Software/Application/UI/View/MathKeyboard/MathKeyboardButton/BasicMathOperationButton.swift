@@ -19,7 +19,8 @@ struct BasicMathOperationButton: View {
                 Rectangle()
                 
                 Text(mathOperation.title)
-                    .font(.system(size: 35, weight: .semibold))
+                    .font(.title)
+                    .fontWeight(.medium)
                     .foregroundColor(Color(.systemBackground))
             }
         }

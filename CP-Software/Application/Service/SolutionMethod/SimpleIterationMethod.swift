@@ -59,14 +59,13 @@ private extension SimpleIterationMethod {
         while abs(nextX - x) > eps {
             iteration += 1
             let nextIterationX = fi(x: nextX, m: m)
-            
-            if nextIterationX < a || nextIterationX > b {
-                return nil
-            } else if abs(nextIterationX - nextX) <= eps {
+                        
+            guard (a...b).contains(nextIterationX) else { return nil }
+            if abs(nextIterationX - nextX) <= eps {
+                iterationsInfo.append(.init(iteration: iteration, x: nextIterationX, m: nil, functionDerivative: nil))
                 result = nextIterationX
                 break
             } else {
-                iterationsInfo.append(.init(iteration: iteration, x: nextX, m: nil, functionDerivative: nil))
                 x = nextX
                 nextX = nextIterationX
             }

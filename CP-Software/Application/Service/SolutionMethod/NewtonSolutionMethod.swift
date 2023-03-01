@@ -63,20 +63,20 @@ private extension NewtonSolutionMethod {
             derivativeX = equation.derivative(at: x)
             let nextX = x - (equation.expressionFunction(x: x) / derivativeX)
             
-            guard nextX >= a && nextX <= b else { return nil }
+            iterationsInfo.append(
+                NewtonIterationInfo(
+                    iteration: iteration,
+                    derivative: derivativeX,
+                    secondDerivative: nil,
+                    x: nextX
+                )
+            )
             
+            guard nextX >= a && nextX <= b else { return nil }
             if abs(equation.expressionFunction(x: nextX)) <= eps {
                 result = nextX
                 break
             } else {
-                iterationsInfo.append(
-                    NewtonIterationInfo(
-                        iteration: iteration,
-                        derivative: derivativeX,
-                        secondDerivative: nil,
-                        x: nextX
-                    )
-                )
                 x = nextX
             }
         }
@@ -85,8 +85,9 @@ private extension NewtonSolutionMethod {
     }
     
     func chooseStartPoint(between a: Double, and b: Double) -> Double {
-        if equation.expressionFunction(x: a) * equation.derivativeSecond(at: a) > 0 {
-            return a != 0 ? a : Double.almostZero
+        let newA = a != 0 ? a : Double.almostZero
+        if equation.expressionFunction(x: newA) * equation.derivativeSecond(at: newA) > 0 {
+            return newA
         } else {
             return b != 0 ? b : Double.almostZero
         }

@@ -11,6 +11,8 @@ final class EquationInputViewModel: ObservableObject {
     
     //MARK: Properties
     
+    @Published var currentKeyboardSection: MathKeyboardSection = .numbersAndGeneralOperations
+    
     @Published var equation = String()
     @Published private var equationComponents = [String]()
     
@@ -22,7 +24,16 @@ final class EquationInputViewModel: ObservableObject {
         equationComponents.isEmpty
     }
     
-    private var equationExpressionComponents = [String]()
+    private var isEndEnteringCustomOperation = true
+    private var leftedCustomOperation: String?
+    
+    private var equationExpressionComponents = [String]() {
+        didSet {
+            print(equationExpressionComponents)
+            print(equationExpressionComponents.joined())
+        }
+    }
+    
     private var allowsDot = true
     
     //MARK: - Initialization
@@ -39,7 +50,11 @@ final class EquationInputViewModel: ObservableObject {
     
     func viewModelForEquationSolution(with method: EquationSolvingMethod) -> EquationSolutionViewModel {
         let equationExpression = equationExpressionComponents.joined().expression
-        return EquationSolutionViewModel(equation: equation, equationExpression: equationExpression, solvingMethod: method)
+        return EquationSolutionViewModel(
+            equation: equation,
+            equationExpression: equationExpression,
+            solvingMethod: method
+        )
     }
     
     func addNumber(_ number: Int) {
@@ -81,11 +96,18 @@ final class EquationInputViewModel: ObservableObject {
                 supplementEquation(withEquationComponents: "^(", withEquationExpression: "**(")
             }
         case .sqrt:
-            if isEquationEmpty || isLastBasicOperation || isLastOpeningBracket {
+            if isEquationEmptyOrLastBasicOrOpeningBracket {
                 supplementEquation(withEquationComponents: "sqrt(", withEquationExpression: "sqrt(")
             }
+        case let someOperation where someOperation.isTrigonometric:
+            if isEquationEmptyOrLastBasicOrOpeningBracket {
+                supplementEquation(withEquationComponents: "\(operation.rawValue)(", withEquationExpression: "function(")
+                isEndEnteringCustomOperation = false
+                leftedCustomOperation = operation.rawValue
+            }
+        default:
+            break
         }
-        
     }
     
     func addAuxiliaryOperation(_ operation: AuxiliaryMathOperation) {
@@ -125,10 +147,14 @@ private extension EquationInputViewModel {
     
     func removeEquationsLastOperation() {
         let last = equationComponents.removeLast()
-        equationExpressionComponents.removeLast()
+        let expressionLast = equationExpressionComponents.removeLast()
         
         if last == "." {
             allowsDot = true
+        }
+        
+        if expressionLast.contains(",") {
+            isEndEnteringCustomOperation = false
         }
     }
     
@@ -139,7 +165,14 @@ private extension EquationInputViewModel {
     
     func addClosingBracket() {
         guard isLastNumber || isLastX || (!isWithinEmptyBreackets && !isLastContainsOpeningBracket) else { return }
-        supplementEquation(withEquationComponents: ")", withEquationExpression: ")")
+        if !isEndEnteringCustomOperation, let leftedCustomOperation,
+            equation.appending(")").isBracketsBalanced(),
+            isLastNumberOrClosingBracketOrX {
+            supplementEquation(withEquationComponents: ")", withEquationExpression: ", '\(leftedCustomOperation)')")
+            isEndEnteringCustomOperation = true
+        } else {
+            supplementEquation(withEquationComponents: ")", withEquationExpression: ")")
+        }
     }
     
 }
@@ -170,6 +203,10 @@ private extension EquationInputViewModel {
     var isLastNumberOrClosingBracketOrX: Bool { isLastNumberOrClosingBracket || isLastX }
     
     var isXPassedChecks: Bool { isEquationEmpty || (!isLastNumber && !isLastClosingBracket && !isLastX) }
+    
+    var isEquationEmptyOrLastBasicOrOpeningBracket: Bool {
+        isEquationEmpty || isLastBasicOperation || isLastOpeningBracket
+    }
     
     var isLastBasicOperation: Bool {
         guard let last = equationComponents.last else { return false }

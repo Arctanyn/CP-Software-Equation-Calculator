@@ -11,7 +11,7 @@ import Combine
 final class EquationSolutionViewModel: ObservableObject {
     
     //MARK: Properties
-    
+        
     @Published var epsilonValueText = String()
     @Published var lowSearchRangeText = String()
     @Published var highSearchRangeText = String()

@@ -32,6 +32,7 @@ struct EquationSolution: View {
                             )
                         } else {
                             Text("No solution")
+                                .padding(.vertical)
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(.pink)

@@ -19,11 +19,12 @@ struct AdvancedMathOperationButton: View {
                 Rectangle()
                 
                 Text(mathOperation.title)
-                    .font(.system(size: 25, weight: .semibold))
+                    .font(.title2)
+                    .fontWeight(.medium)
                     .foregroundColor(.primary)
             }
         }
-        .tint(.secondary.opacity(0.4))
+        .tint(.secondary.opacity(0.3))
     }
 }
 

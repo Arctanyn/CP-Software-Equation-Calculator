@@ -19,7 +19,8 @@ struct NumberButton: View {
                 Rectangle()
                 
                 Text(String(number))
-                    .font(.system(size: 25, weight: .semibold))
+                    .font(.title2)
+                    .fontWeight(.medium)
                     .foregroundColor(.primary)
             }
         }

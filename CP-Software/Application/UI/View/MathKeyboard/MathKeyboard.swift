@@ -17,20 +17,65 @@ struct MathKeyboard: View {
                 deleteButton
             }
             
-            GeometryReader { proxy in
-                HStack(alignment: .top, spacing: 2) {
+            HStack {
+                ForEach(MathKeyboardSection.allCases, id: \.self) { section in
+                    MathKeyboardSectionButton(keyboardSection: section)
+                        .environmentObject(viewModel)
+                }
+            }
+            .frame(height: 40)
+            .padding()
+            
+            switch viewModel.currentKeyboardSection {
+            case .numbersAndGeneralOperations:
+                GeometryReader { proxy in
+                    HStack(alignment: .top, spacing: 2) {
+                        VStack(spacing: 2) {
+                            AdvancedMathOperationButton(mathOperation: .pow)
+                            AdvancedMathOperationButton(mathOperation: .sqrt)
+                            AuxiliaryMathOperationButton(mathOperation: .roundBracket)
+                            AuxiliaryMathOperationButton(mathOperation: .x)
+                        }
+                        
+                        NumbersPad()
+                            .frame(width: proxy.size.width * 2 / 3)
+                        
+                        BasicMathOperationsPad()
+                    }
+                }
+            case .trigonometry:
+                HStack(spacing: 2) {
                     VStack(spacing: 2) {
-                        AdvancedMathOperationButton(mathOperation: .pow)
-                        AdvancedMathOperationButton(mathOperation: .sqrt)
-                        AuxiliaryMathOperationButton(mathOperation: .roundBracket)
-                        AuxiliaryMathOperationButton(mathOperation: .x)
+                        AdvancedMathOperationButton(mathOperation: .sin)
+                        AdvancedMathOperationButton(mathOperation: .asin)
+                        AdvancedMathOperationButton(mathOperation: .sinh)
+                        AdvancedMathOperationButton(mathOperation: .asinh)
                     }
                     
-                    NumbersPad()
-                        .frame(width: proxy.size.width * 2 / 3)
+                    VStack(spacing: 2) {
+                        AdvancedMathOperationButton(mathOperation: .cos)
+                        AdvancedMathOperationButton(mathOperation: .acos)
+                        AdvancedMathOperationButton(mathOperation: .cosh)
+                        AdvancedMathOperationButton(mathOperation: .acosh)
+                    }
                     
-                    BasicMathOperationsPad()
+                    VStack(spacing: 2) {
+                        AdvancedMathOperationButton(mathOperation: .tan)
+                        AdvancedMathOperationButton(mathOperation: .atan)
+                        AdvancedMathOperationButton(mathOperation: .tanh)
+                        AdvancedMathOperationButton(mathOperation: .atanh)
+                    }
+                    
+                    VStack(spacing: 2) {
+                        AdvancedMathOperationButton(mathOperation: .cot)
+                        AdvancedMathOperationButton(mathOperation: .acot)
+                        AdvancedMathOperationButton(mathOperation: .coth)
+                        AdvancedMathOperationButton(mathOperation: .acoth)
+                    }
+
                 }
+            case .expAndLogarithms:
+                EmptyView()
             }
         }
     }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940CFF2B29AF6C220084DDF8 /* MathKeyboardSectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940CFF2A29AF6C220084DDF8 /* MathKeyboardSectionButton.swift */; };
+		940CFF2D29AF712E0084DDF8 /* MathKeyboardSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940CFF2C29AF712E0084DDF8 /* MathKeyboardSection.swift */; };
+		940CFF2F29AF7E670084DDF8 /* NSNumber + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940CFF2E29AF7E670084DDF8 /* NSNumber + Ext.swift */; };
+		940CFF3229AF9CC20084DDF8 /* AuxiliaryMathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940CFF3129AF9CC20084DDF8 /* AuxiliaryMathOperation.swift */; };
+		940CFF3429AF9CD70084DDF8 /* AdvancedMathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940CFF3329AF9CD70084DDF8 /* AdvancedMathOperation.swift */; };
 		942CFFEA29A7904D001E3C42 /* SolutionSearchParametersRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942CFFE929A7904D001E3C42 /* SolutionSearchParametersRepresentation.swift */; };
 		942CFFEC29A79490001E3C42 /* SolutionViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942CFFEB29A79490001E3C42 /* SolutionViewModelProtocol.swift */; };
 		942CFFF329A79A70001E3C42 /* NSExpression + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942CFFF229A79A70001E3C42 /* NSExpression + Ext.swift */; };
@@ -22,7 +27,7 @@
 		945CF5A3299E92760018AA70 /* NumbersPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A2299E92760018AA70 /* NumbersPad.swift */; };
 		945CF5A5299E95530018AA70 /* MathKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A4299E95530018AA70 /* MathKeyboard.swift */; };
 		945CF5A7299E95800018AA70 /* BasicMathOperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A6299E95800018AA70 /* BasicMathOperationButton.swift */; };
-		945CF5AA299E9CEB0018AA70 /* MathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A9299E9CEB0018AA70 /* MathOperation.swift */; };
+		945CF5AA299E9CEB0018AA70 /* BasicMathOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945CF5A9299E9CEB0018AA70 /* BasicMathOperation.swift */; };
 		945F262429A4CD35008626E8 /* EquationSolvingMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F262329A4CD35008626E8 /* EquationSolvingMethod.swift */; };
 		945F264729A501B8008626E8 /* DichotomyIteration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F264629A501B8008626E8 /* DichotomyIteration.swift */; };
 		945F264B29A52B5D008626E8 /* DichotomyIterationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945F264A29A52B5D008626E8 /* DichotomyIterationInfo.swift */; };
@@ -49,6 +54,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		940CFF2A29AF6C220084DDF8 /* MathKeyboardSectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathKeyboardSectionButton.swift; sourceTree = "<group>"; };
+		940CFF2C29AF712E0084DDF8 /* MathKeyboardSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathKeyboardSection.swift; sourceTree = "<group>"; };
+		940CFF2E29AF7E670084DDF8 /* NSNumber + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNumber + Ext.swift"; sourceTree = "<group>"; };
+		940CFF3129AF9CC20084DDF8 /* AuxiliaryMathOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxiliaryMathOperation.swift; sourceTree = "<group>"; };
+		940CFF3329AF9CD70084DDF8 /* AdvancedMathOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMathOperation.swift; sourceTree = "<group>"; };
 		942CFFE929A7904D001E3C42 /* SolutionSearchParametersRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionSearchParametersRepresentation.swift; sourceTree = "<group>"; };
 		942CFFEB29A79490001E3C42 /* SolutionViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionViewModelProtocol.swift; sourceTree = "<group>"; };
 		942CFFF229A79A70001E3C42 /* NSExpression + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSExpression + Ext.swift"; sourceTree = "<group>"; };
@@ -66,7 +76,7 @@
 		945CF5A2299E92760018AA70 /* NumbersPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersPad.swift; sourceTree = "<group>"; };
 		945CF5A4299E95530018AA70 /* MathKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathKeyboard.swift; sourceTree = "<group>"; };
 		945CF5A6299E95800018AA70 /* BasicMathOperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMathOperationButton.swift; sourceTree = "<group>"; };
-		945CF5A9299E9CEB0018AA70 /* MathOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOperation.swift; sourceTree = "<group>"; };
+		945CF5A9299E9CEB0018AA70 /* BasicMathOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMathOperation.swift; sourceTree = "<group>"; };
 		945F262329A4CD35008626E8 /* EquationSolvingMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquationSolvingMethod.swift; sourceTree = "<group>"; };
 		945F264629A501B8008626E8 /* DichotomyIteration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichotomyIteration.swift; sourceTree = "<group>"; };
 		945F264A29A52B5D008626E8 /* DichotomyIterationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DichotomyIterationInfo.swift; sourceTree = "<group>"; };
@@ -103,6 +113,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		940CFF3029AF9CA30084DDF8 /* MathOperation */ = {
+			isa = PBXGroup;
+			children = (
+				945CF5A9299E9CEB0018AA70 /* BasicMathOperation.swift */,
+				940CFF3329AF9CD70084DDF8 /* AdvancedMathOperation.swift */,
+				940CFF3129AF9CC20084DDF8 /* AuxiliaryMathOperation.swift */,
+			);
+			path = MathOperation;
+			sourceTree = "<group>";
+		};
 		944B4B2029A4B1E300B8745F /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +206,7 @@
 				942CFFF229A79A70001E3C42 /* NSExpression + Ext.swift */,
 				9476430729A8CCFC00C8D157 /* View + Ext.swift */,
 				9476431E29A9128600C8D157 /* Double + Ext.swift */,
+				940CFF2E29AF7E670084DDF8 /* NSNumber + Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -206,8 +227,9 @@
 		945CF5A8299E9CDB0018AA70 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
-				945CF5A9299E9CEB0018AA70 /* MathOperation.swift */,
+				940CFF3029AF9CA30084DDF8 /* MathOperation */,
 				945F262329A4CD35008626E8 /* EquationSolvingMethod.swift */,
+				940CFF2C29AF712E0084DDF8 /* MathKeyboardSection.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -229,6 +251,7 @@
 				945CF5AB299EA0EF0018AA70 /* MathKeyboardButton */,
 				945CF5AD299EA2150018AA70 /* MathKeyboardPad */,
 				945CF5A4299E95530018AA70 /* MathKeyboard.swift */,
+				940CFF2A29AF6C220084DDF8 /* MathKeyboardSectionButton.swift */,
 			);
 			path = MathKeyboard;
 			sourceTree = "<group>";
@@ -394,7 +417,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				945CF5A5299E95530018AA70 /* MathKeyboard.swift in Sources */,
-				945CF5AA299E9CEB0018AA70 /* MathOperation.swift in Sources */,
+				945CF5AA299E9CEB0018AA70 /* BasicMathOperation.swift in Sources */,
 				947642FB29A8A90900C8D157 /* DichotomyMethod.swift in Sources */,
 				947642F929A8A8B700C8D157 /* EquationSolvingService.swift in Sources */,
 				9476430829A8CCFC00C8D157 /* View + Ext.swift in Sources */,
@@ -409,6 +432,7 @@
 				9476430229A8C04F00C8D157 /* SimpleIteration.swift in Sources */,
 				9476430429A8C08000C8D157 /* SimpleIterationInfo.swift in Sources */,
 				9476431829A9099A00C8D157 /* NewtonIteration.swift in Sources */,
+				940CFF2F29AF7E670084DDF8 /* NSNumber + Ext.swift in Sources */,
 				942CFFEC29A79490001E3C42 /* SolutionViewModelProtocol.swift in Sources */,
 				94D25131299EBA88000E260C /* AdvancedMathOperationsPad.swift in Sources */,
 				94D2512F299EB975000E260C /* BasicMathOperationsPad.swift in Sources */,
@@ -418,16 +442,20 @@
 				947642F429A8A76E00C8D157 /* EquationSolution.swift in Sources */,
 				945CF568299E5CA90018AA70 /* AppDelegate.swift in Sources */,
 				9476431F29A9128600C8D157 /* Double + Ext.swift in Sources */,
+				940CFF3429AF9CD70084DDF8 /* AdvancedMathOperation.swift in Sources */,
 				94D25133299EBC0B000E260C /* AuxiliaryMathOperationButton.swift in Sources */,
 				945F264B29A52B5D008626E8 /* DichotomyIterationInfo.swift in Sources */,
 				945CF5A3299E92760018AA70 /* NumbersPad.swift in Sources */,
+				940CFF2B29AF6C220084DDF8 /* MathKeyboardSectionButton.swift in Sources */,
 				945CF56A299E5CA90018AA70 /* SceneDelegate.swift in Sources */,
 				94D2512D299EB8C9000E260C /* AdvancedMathOperationButton.swift in Sources */,
 				94575C1229A7E5FD00CC62BF /* SolveButton.swift in Sources */,
 				945F264729A501B8008626E8 /* DichotomyIteration.swift in Sources */,
+				940CFF3229AF9CC20084DDF8 /* AuxiliaryMathOperation.swift in Sources */,
 				947642F629A8A78500C8D157 /* EquationSolutionViewModel.swift in Sources */,
 				947642FD29A8AE6200C8D157 /* SimpleIterationMethod.swift in Sources */,
 				942CFFF329A79A70001E3C42 /* NSExpression + Ext.swift in Sources */,
+				940CFF2D29AF712E0084DDF8 /* MathKeyboardSection.swift in Sources */,
 				942CFFEA29A7904D001E3C42 /* SolutionSearchParametersRepresentation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
