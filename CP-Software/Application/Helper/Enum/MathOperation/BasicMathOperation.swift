@@ -5,11 +5,11 @@
 //  Created by Малиль Дугулюбгов on 16.02.2023.
 //
 
-enum BasicMathOperation {
-    case add
-    case sub
-    case mul
-    case div
+enum BasicMathOperation: String {
+    case add = "+"
+    case sub = "-"
+    case mul = "*"
+    case div = "/"
     
     var title: String {
         switch self {

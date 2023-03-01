@@ -18,7 +18,9 @@ final class EquationInputViewModel: ObservableObject {
     
     let solutionMethods = EquationSolvingMethod.allCases
     
-    var isReadyToSolve: Bool { equationComponents.contains("X") && equation.isBracketsBalanced() }
+    var isReadyToSolve: Bool {
+        equationComponents.contains("X") && equation.isBracketsBalanced() && !isLastBasicOperation
+    }
     
     var isEquationEmpty: Bool {
         equationComponents.isEmpty
@@ -66,24 +68,20 @@ final class EquationInputViewModel: ObservableObject {
     
     func addBasicOperation(_ operation: BasicMathOperation) {
         switch operation {
-        case .add:
-            if isLastNumberOrClosingBracketOrX {
-                supplementEquation(withEquationComponents: "+", withEquationExpression: "+")
-                allowsDot = true
-            }
         case .sub:
             if checksForSubtraction {
-                supplementEquation(withEquationComponents: "-", withEquationExpression: "-")
+                supplementEquation(
+                    withEquationComponents: operation.title,
+                    withEquationExpression: operation.rawValue
+                )
                 allowsDot = true
             }
-        case .mul:
-            if isLastNumberOrClosingBracketOrX  {
-                supplementEquation(withEquationComponents: "×", withEquationExpression: "*")
-                allowsDot = true
-            }
-        case .div:
+        case .add, .mul, .div:
             if isLastNumberOrClosingBracketOrX {
-                supplementEquation(withEquationComponents: "/", withEquationExpression: "/")
+                supplementEquation(
+                    withEquationComponents: operation.title,
+                    withEquationExpression: operation.rawValue
+                )
                 allowsDot = true
             }
         }
@@ -132,7 +130,8 @@ final class EquationInputViewModel: ObservableObject {
     
     
     func removeLastOperation() {
-        removeEquationsLastOperation()
+        removeEquationLastOperation()
+        removeExpressionLastOperation()
     }
 }
 
@@ -145,16 +144,27 @@ private extension EquationInputViewModel {
         equationExpressionComponents.append(expression)
     }
     
-    func removeEquationsLastOperation() {
-        let last = equationComponents.removeLast()
-        let expressionLast = equationExpressionComponents.removeLast()
-        
-        if last == "." {
+    func removeEquationLastOperation() {
+        let equationLast = equationComponents.removeLast()
+
+        if equationLast == "." {
             allowsDot = true
         }
+    }
+    
+    func removeExpressionLastOperation() {
+        let expressionLast = equationExpressionComponents.removeLast()
         
         if expressionLast.contains(",") {
             isEndEnteringCustomOperation = false
+        }
+        
+        for operation in AdvancedMathOperation.allCases where operation.isTrigonometric {
+            if expressionLast.contains(operation.rawValue) {
+                leftedCustomOperation = operation.rawValue
+            } else if expressionLast.contains("function(") {
+                isEndEnteringCustomOperation = true
+            }
         }
     }
     
@@ -164,7 +174,7 @@ private extension EquationInputViewModel {
     }
     
     func addClosingBracket() {
-        guard isLastNumber || isLastX || (!isWithinEmptyBreackets && !isLastContainsOpeningBracket) else { return }
+        guard isLastNumber || isLastX || (!isWithinEmptyBreackets && !isLastContainsOpeningBracket && !isLastBasicOperation) else { return }
         if !isEndEnteringCustomOperation, let leftedCustomOperation,
             equation.appending(")").isBracketsBalanced(),
             isLastNumberOrClosingBracketOrX {

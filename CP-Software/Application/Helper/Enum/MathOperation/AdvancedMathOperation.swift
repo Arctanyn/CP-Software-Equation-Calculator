@@ -5,7 +5,7 @@
 //  Created by Малиль Дугулюбгов on 01.03.2023.
 //
 
-enum AdvancedMathOperation: String {
+enum AdvancedMathOperation: String, CaseIterable {
     case pow
     case sqrt
     case sin, asin, sinh, asinh
