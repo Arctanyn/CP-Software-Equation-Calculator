@@ -32,7 +32,9 @@ struct MathKeyboardSectionButton: View {
             
         }
         .onTapGesture {
-            viewModel.currentKeyboardSection = keyboardSection
+            withAnimation(.easeIn(duration: 0.1)) {
+                viewModel.currentKeyboardSection = keyboardSection
+            }
         }
     }
     
