@@ -29,12 +29,7 @@ final class EquationInputViewModel: ObservableObject {
     private var isEndEnteringCustomOperation = true
     private var leftedCustomOperation: String?
     
-    private var equationExpressionComponents = [String]() {
-        didSet {
-            print(equationExpressionComponents)
-            print(equationExpressionComponents.joined())
-        }
-    }
+    private var equationExpressionComponents = [String]()
     
     private var allowsDot = true
     
@@ -212,7 +207,10 @@ private extension EquationInputViewModel {
     
     var isLastExp: Bool { equationComponents.last == "e" }
     
-    var checksForSubtraction: Bool { isEquationEmpty || isLastNumber || isLastBracket || isLastX || isLastExp }
+    var checksForSubtraction: Bool {
+        isEquationEmpty || isLastNumber || isLastBracket || isLastContainsOpeningBracket || isLastX || isLastExp
+        
+    }
     
     var isLastBracket: Bool { isLastOpeningBracket || isLastClosingBracket }
     

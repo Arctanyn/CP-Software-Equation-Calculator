@@ -18,7 +18,7 @@ struct SolutionSearchParametersRepresentation: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
-            ScrollView(.horizontal) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     Text("F(x) =")
                     Text(viewModel.equation)

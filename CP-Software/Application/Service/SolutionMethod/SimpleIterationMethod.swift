@@ -44,7 +44,7 @@ private extension SimpleIterationMethod {
     func simpleIteration(a: Double, b: Double, eps: Double) -> Double? {
         guard a < b else { return nil }
         
-        var x: Double = chooseStartPoint(between: a, and: b)
+        var x = chooseStartPoint(between: a, and: b)
         
         let derivative = equation.derivative(at: x)
         let m = 1.01 * derivative
@@ -54,15 +54,29 @@ private extension SimpleIterationMethod {
         
         var iteration = 1
         
-        iterationsInfo.append(.init(iteration: iteration, x: x, m: m, functionDerivative: derivative))
+        iterationsInfo.append(
+            SimpleIterationInfo(
+                iteration: iteration,
+                x: x,
+                m: m,
+                functionDerivative: derivative
+            )
+        )
         
         while abs(nextX - x) > eps {
             iteration += 1
             let nextIterationX = fi(x: nextX, m: m)
-                        
+
+            iterationsInfo.append(
+                SimpleIterationInfo(
+                    iteration: iteration,
+                    x: nextIterationX,
+                    m: nil, functionDerivative: nil
+                )
+            )
+            
             guard (a...b).contains(nextIterationX) else { return nil }
             if abs(nextIterationX - nextX) <= eps {
-                iterationsInfo.append(.init(iteration: iteration, x: nextIterationX, m: nil, functionDerivative: nil))
                 result = nextIterationX
                 break
             } else {

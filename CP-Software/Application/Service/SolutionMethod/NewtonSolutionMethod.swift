@@ -40,6 +40,7 @@ final class NewtonSolutionMethod {
 
 private extension NewtonSolutionMethod {
     func newton(a: Double, b: Double, eps: Double) -> Double? {
+        guard a < b else { return nil }
         var x = chooseStartPoint(between: a, and: b)
         
         var result: Double?
@@ -72,7 +73,7 @@ private extension NewtonSolutionMethod {
                 )
             )
             
-            guard nextX >= a && nextX <= b else { return nil }
+            guard (a...b).contains(nextX) else { return nil }
             if abs(equation.expressionFunction(x: nextX)) <= eps {
                 result = nextX
                 break
@@ -86,10 +87,12 @@ private extension NewtonSolutionMethod {
     
     func chooseStartPoint(between a: Double, and b: Double) -> Double {
         let newA = a != 0 ? a : Double.almostZero
+        let newB = b != 0 ? b : Double.almostZero
+        
         if equation.expressionFunction(x: newA) * equation.derivativeSecond(at: newA) > 0 {
-            return newA
+            return newA != Double.almostZero ? newA : newB
         } else {
-            return b != 0 ? b : Double.almostZero
+            return newB
         }
     }
 }

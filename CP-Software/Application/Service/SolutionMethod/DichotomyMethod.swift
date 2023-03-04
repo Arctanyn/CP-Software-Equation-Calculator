@@ -42,6 +42,7 @@ final class DichotomyMethod {
 
 private extension DichotomyMethod {
     func dichotomy(a: Double, b: Double, eps: Double) -> Double? {
+        guard a < b else { return nil }
         var newA = a != 0 ? a : Double.almostZero
         var newB = b != 0 ? b : Double.almostZero
         
