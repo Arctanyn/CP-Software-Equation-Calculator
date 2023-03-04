@@ -52,4 +52,5 @@ extension NSNumber {
         }
     }
     
+    func log2() -> NSNumber { Darwin.log2(doubleValue) as NSNumber }
 }

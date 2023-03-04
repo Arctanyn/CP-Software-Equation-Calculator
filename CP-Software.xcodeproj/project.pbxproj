@@ -47,6 +47,7 @@
 		9476431829A9099A00C8D157 /* NewtonIteration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476431729A9099A00C8D157 /* NewtonIteration.swift */; };
 		9476431A29A90C2700C8D157 /* SolvingSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476431929A90C2700C8D157 /* SolvingSteps.swift */; };
 		9476431F29A9128600C8D157 /* Double + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9476431E29A9128600C8D157 /* Double + Ext.swift */; };
+		949CF08029B365F800C56465 /* TriginometryPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949CF07F29B365F700C56465 /* TriginometryPad.swift */; };
 		94D2512D299EB8C9000E260C /* AdvancedMathOperationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2512C299EB8C9000E260C /* AdvancedMathOperationButton.swift */; };
 		94D2512F299EB975000E260C /* BasicMathOperationsPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */; };
 		94D25131299EBA88000E260C /* AdvancedMathOperationsPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D25130299EBA88000E260C /* AdvancedMathOperationsPad.swift */; };
@@ -96,6 +97,7 @@
 		9476431729A9099A00C8D157 /* NewtonIteration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewtonIteration.swift; sourceTree = "<group>"; };
 		9476431929A90C2700C8D157 /* SolvingSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolvingSteps.swift; sourceTree = "<group>"; };
 		9476431E29A9128600C8D157 /* Double + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double + Ext.swift"; sourceTree = "<group>"; };
+		949CF07F29B365F700C56465 /* TriginometryPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriginometryPad.swift; sourceTree = "<group>"; };
 		94D2512C299EB8C9000E260C /* AdvancedMathOperationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMathOperationButton.swift; sourceTree = "<group>"; };
 		94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicMathOperationsPad.swift; sourceTree = "<group>"; };
 		94D25130299EBA88000E260C /* AdvancedMathOperationsPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMathOperationsPad.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				945CF5A2299E92760018AA70 /* NumbersPad.swift */,
 				94D2512E299EB975000E260C /* BasicMathOperationsPad.swift */,
 				94D25130299EBA88000E260C /* AdvancedMathOperationsPad.swift */,
+				949CF07F29B365F700C56465 /* TriginometryPad.swift */,
 			);
 			path = MathKeyboardPad;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				9476431029A9041500C8D157 /* NewtonIterationInfo.swift in Sources */,
 				9471A84A29A215D400DAB91D /* EquationInputViewModel.swift in Sources */,
 				9476430E29A9036100C8D157 /* NewtonSolutionMethod.swift in Sources */,
+				949CF08029B365F800C56465 /* TriginometryPad.swift in Sources */,
 				9476430629A8C1B200C8D157 /* Answer.swift in Sources */,
 				945CF587299E60620018AA70 /* String + Ext.swift in Sources */,
 				946587BA29A5EBF000599EB2 /* UIApplication + Ext.swift in Sources */,

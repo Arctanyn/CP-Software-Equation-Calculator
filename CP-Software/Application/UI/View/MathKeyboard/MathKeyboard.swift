@@ -17,14 +17,15 @@ struct MathKeyboard: View {
                 deleteButton
             }
             
-            HStack {
+            HStack(spacing: 15) {
                 ForEach(MathKeyboardSection.allCases, id: \.self) { section in
                     MathKeyboardSectionButton(keyboardSection: section)
                         .environmentObject(viewModel)
                 }
             }
             .frame(height: 40)
-            .padding()
+            .padding(.vertical)
+            .padding(.horizontal, 5)
             
             switch viewModel.currentKeyboardSection {
             case .numbersAndGeneralOperations:
@@ -44,38 +45,19 @@ struct MathKeyboard: View {
                     }
                 }
             case .trigonometry:
-                HStack(spacing: 2) {
-                    VStack(spacing: 2) {
-                        AdvancedMathOperationButton(mathOperation: .sin)
-                        AdvancedMathOperationButton(mathOperation: .asin)
-                        AdvancedMathOperationButton(mathOperation: .sinh)
-                        AdvancedMathOperationButton(mathOperation: .asinh)
-                    }
-                    
-                    VStack(spacing: 2) {
-                        AdvancedMathOperationButton(mathOperation: .cos)
-                        AdvancedMathOperationButton(mathOperation: .acos)
-                        AdvancedMathOperationButton(mathOperation: .cosh)
-                        AdvancedMathOperationButton(mathOperation: .acosh)
-                    }
-                    
-                    VStack(spacing: 2) {
-                        AdvancedMathOperationButton(mathOperation: .tan)
-                        AdvancedMathOperationButton(mathOperation: .atan)
-                        AdvancedMathOperationButton(mathOperation: .tanh)
-                        AdvancedMathOperationButton(mathOperation: .atanh)
-                    }
-                    
-                    VStack(spacing: 2) {
-                        AdvancedMathOperationButton(mathOperation: .cot)
-                        AdvancedMathOperationButton(mathOperation: .acot)
-                        AdvancedMathOperationButton(mathOperation: .coth)
-                        AdvancedMathOperationButton(mathOperation: .acoth)
-                    }
-
-                }
+                TriginometryPad()
             case .expAndLogarithms:
-                EmptyView()
+                GeometryReader { proxy in
+                    HStack(alignment: .top, spacing: 2) {
+                        AdvancedMathOperationButton(mathOperation: .e)
+                        AdvancedMathOperationButton(mathOperation: .exp)
+                        AdvancedMathOperationButton(mathOperation: .log2)
+                        AdvancedMathOperationButton(mathOperation: .lg)
+                        AdvancedMathOperationButton(mathOperation: .ln)
+                    }
+                    .frame(height: proxy.size.height / 4)
+                }
+                
             }
         }
     }

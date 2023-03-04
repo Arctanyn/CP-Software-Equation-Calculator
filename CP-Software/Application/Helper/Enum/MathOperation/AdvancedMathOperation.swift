@@ -13,6 +13,12 @@ enum AdvancedMathOperation: String, CaseIterable {
     case tan, atan, tanh, atanh
     case cot, acot, coth, acoth
     
+    case e
+    case exp
+    case log2
+    case lg
+    case ln
+    
     var title: String {
         switch self {
         case .pow: return "^"
@@ -33,10 +39,15 @@ enum AdvancedMathOperation: String, CaseIterable {
         case .acot: return "acot"
         case .coth: return "coth"
         case .acoth: return "acoth"
+        case .e: return "e"
+        case .exp: return "exp"
+        case .log2: return "log2"
+        case .lg: return "lg"
+        case .ln: return "ln"
         }
     }
     
-    var isTrigonometric: Bool {
+    var isCustomExpressionFunction: Bool {
         switch self {
         case .pow, .sqrt:
             return false
@@ -48,6 +59,12 @@ enum AdvancedMathOperation: String, CaseIterable {
             return true
         case .cot, .acot, .coth, .acoth:
             return true
+        case .e, .exp:
+            return false
+        case .log2:
+            return true
+        case .lg, .ln:
+            return false
         }
     }
 }

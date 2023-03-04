@@ -77,7 +77,7 @@ final class EquationInputViewModel: ObservableObject {
                 allowsDot = true
             }
         case .add, .mul, .div:
-            if isLastNumberOrClosingBracketOrX {
+            if isLastNumberOrClosingBracketOrX || isLastExp {
                 supplementEquation(
                     withEquationComponents: operation.title,
                     withEquationExpression: operation.rawValue
@@ -90,18 +90,34 @@ final class EquationInputViewModel: ObservableObject {
     func addAdvancedOperation(_ operation: AdvancedMathOperation) {
         switch operation {
         case .pow:
-            if isLastNumberOrClosingBracket || isLastX {
+            if isLastNumberOrClosingBracket || isLastX || isLastExp {
                 supplementEquation(withEquationComponents: "^(", withEquationExpression: "**(")
             }
         case .sqrt:
             if isEquationEmptyOrLastBasicOrOpeningBracket {
                 supplementEquation(withEquationComponents: "sqrt(", withEquationExpression: "sqrt(")
             }
-        case let someOperation where someOperation.isTrigonometric:
+        case let someOperation where someOperation.isCustomExpressionFunction:
             if isEquationEmptyOrLastBasicOrOpeningBracket {
                 supplementEquation(withEquationComponents: "\(operation.rawValue)(", withEquationExpression: "function(")
                 isEndEnteringCustomOperation = false
                 leftedCustomOperation = operation.rawValue
+            }
+        case .e:
+            if !isLastClosingBracketOrX && !isLastNumber {
+                supplementEquation(withEquationComponents: "e", withEquationExpression: "exp(1)")
+            }
+        case .exp:
+            if isEquationEmptyOrLastBasicOrOpeningBracket {
+                supplementEquation(withEquationComponents: "exp(", withEquationExpression: "exp(")
+            }
+        case .lg:
+            if isEquationEmptyOrLastBasicOrOpeningBracket {
+                supplementEquation(withEquationComponents: "lg(", withEquationExpression: "log(")
+            }
+        case .ln:
+            if isEquationEmptyOrLastBasicOrOpeningBracket {
+                supplementEquation(withEquationComponents: "ln(", withEquationExpression: "ln(")
             }
         default:
             break
@@ -159,7 +175,7 @@ private extension EquationInputViewModel {
             isEndEnteringCustomOperation = false
         }
         
-        for operation in AdvancedMathOperation.allCases where operation.isTrigonometric {
+        for operation in AdvancedMathOperation.allCases where operation.isCustomExpressionFunction {
             if expressionLast.contains(operation.rawValue) {
                 leftedCustomOperation = operation.rawValue
             } else if expressionLast.contains("function(") {
@@ -169,12 +185,12 @@ private extension EquationInputViewModel {
     }
     
     func addOpeningBracket() {
-        guard !isLastNumber && !isLastClosingBracket && !isLastX else { return }
+        guard !isLastNumber && !isLastClosingBracket && !isLastX && !isLastExp else { return }
         supplementEquation(withEquationComponents: "(", withEquationExpression: "(")
     }
     
     func addClosingBracket() {
-        guard isLastNumber || isLastX || (!isWithinEmptyBreackets && !isLastContainsOpeningBracket && !isLastBasicOperation) else { return }
+        guard isLastNumber || isLastX || (!isLastContainsOpeningBracket && !isLastBasicOperation) else { return }
         if !isEndEnteringCustomOperation, let leftedCustomOperation,
             equation.appending(")").isBracketsBalanced(),
             isLastNumberOrClosingBracketOrX {
@@ -194,7 +210,9 @@ private extension EquationInputViewModel {
     
     var isLastNumber: Bool { Double(equationComponents.last ?? "") != nil }
     
-    var checksForSubtraction: Bool { isEquationEmpty || isLastNumber || isLastBracket || isLastX }
+    var isLastExp: Bool { equationComponents.last == "e" }
+    
+    var checksForSubtraction: Bool { isEquationEmpty || isLastNumber || isLastBracket || isLastX || isLastExp }
     
     var isLastBracket: Bool { isLastOpeningBracket || isLastClosingBracket }
     
