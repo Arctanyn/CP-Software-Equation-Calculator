@@ -47,7 +47,7 @@ struct EquationInput: View {
                     .animation(.easeIn(duration: 0.2), value: viewModel.isReadyToSolve)
                     
                     MathKeyboard()
-                        .frame(maxHeight: proxy.size.height / 1.4)
+                        .frame(maxHeight: proxy.size.height / 1.5)
                         .padding(.bottom, 10)
                         .padding(.horizontal, 10)
                 }

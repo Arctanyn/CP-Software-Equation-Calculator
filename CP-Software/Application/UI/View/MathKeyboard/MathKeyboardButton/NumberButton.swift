@@ -19,7 +19,7 @@ struct NumberButton: View {
                 Rectangle()
                 
                 Text(String(number))
-                    .font(.title2)
+                    .font(.title)
                     .fontWeight(.medium)
                     .foregroundColor(.primary)
             }
