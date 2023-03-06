@@ -11,53 +11,55 @@ struct MathKeyboard: View {
     @EnvironmentObject private var viewModel: EquationInputViewModel
     
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                deleteButton
-            }
-            
-            HStack(spacing: 15) {
-                ForEach(MathKeyboardSection.allCases, id: \.self) { section in
-                    MathKeyboardSectionButton(keyboardSection: section)
-                        .environmentObject(viewModel)
-                }
-            }
-            .frame(height: 40)
-            .padding(.vertical)
-            .padding(.horizontal, 5)
-            
-            switch viewModel.currentKeyboardSection {
-            case .numbersAndGeneralOperations:
-                GeometryReader { proxy in
-                    HStack(alignment: .top, spacing: 2) {
-                        VStack(spacing: 2) {
-                            AdvancedMathOperationButton(mathOperation: .pow)
-                            AdvancedMathOperationButton(mathOperation: .sqrt)
-                            AuxiliaryMathOperationButton(mathOperation: .roundBracket)
-                            AuxiliaryMathOperationButton(mathOperation: .x)
-                        }
-                        
-                        NumbersPad()
-                            .frame(width: proxy.size.width * 2 / 3)
-                        
-                        BasicMathOperationsPad()
-                    }
-                }
-            case .trigonometry:
-                TriginometryPad()
-            case .expAndLogarithms:
-                GeometryReader { proxy in
-                    HStack(alignment: .top, spacing: 2) {
-                        AdvancedMathOperationButton(mathOperation: .e)
-                        AdvancedMathOperationButton(mathOperation: .exp)
-                        AdvancedMathOperationButton(mathOperation: .log2)
-                        AdvancedMathOperationButton(mathOperation: .lg)
-                        AdvancedMathOperationButton(mathOperation: .ln)
-                    }
-                    .frame(height: proxy.size.height / 4)
+        GeometryReader { geometry in
+            VStack {
+                HStack {
+                    Spacer()
+                    deleteButton
                 }
                 
+                HStack(spacing: 15) {
+                    ForEach(MathKeyboardSection.allCases, id: \.self) { section in
+                        MathKeyboardSectionButton(keyboardSection: section)
+                            .environmentObject(viewModel)
+                    }
+                }
+                .frame(height: geometry.size.height * 0.05)
+                .padding(.vertical)
+                .padding(.horizontal, 5)
+                
+                switch viewModel.currentKeyboardSection {
+                case .numbersAndGeneralOperations:
+                    GeometryReader { proxy in
+                        HStack(alignment: .top, spacing: 2) {
+                            VStack(spacing: 2) {
+                                AdvancedMathOperationButton(mathOperation: .pow)
+                                AdvancedMathOperationButton(mathOperation: .sqrt)
+                                AuxiliaryMathOperationButton(mathOperation: .roundBracket)
+                                AuxiliaryMathOperationButton(mathOperation: .x)
+                            }
+                            
+                            NumbersPad()
+                                .frame(width: proxy.size.width * 2 / 3)
+                            
+                            BasicMathOperationsPad()
+                        }
+                    }
+                case .trigonometry:
+                    TriginometryPad()
+                case .expAndLogarithms:
+                    GeometryReader { proxy in
+                        HStack(alignment: .top, spacing: 2) {
+                            AdvancedMathOperationButton(mathOperation: .e)
+                            AdvancedMathOperationButton(mathOperation: .exp)
+                            AdvancedMathOperationButton(mathOperation: .log2)
+                            AdvancedMathOperationButton(mathOperation: .lg)
+                            AdvancedMathOperationButton(mathOperation: .ln)
+                        }
+                        .frame(height: proxy.size.height / 4)
+                    }
+                    
+                }
             }
         }
     }

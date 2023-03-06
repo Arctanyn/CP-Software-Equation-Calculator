@@ -14,50 +14,52 @@ struct EquationInput: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    ScrollViewReader { scrollView in
-                        Text(
-                            viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation
-                        )
-                        .font(.title)
-                        .fontWeight(.medium)
-                        .foregroundColor(
-                            viewModel.isEquationEmpty ? .secondary : .primary
-                        )
-                        .padding(.vertical)
-                        .id(equationTextId)
-                        .onChange(of: viewModel.equation) { _ in
-                            scrollView.scrollTo(equationTextId, anchor: .trailing
+            GeometryReader { proxy in
+                VStack {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        ScrollViewReader { scrollView in
+                            Text(
+                                viewModel.isEquationEmpty ? "Type an equation..." : viewModel.equation
                             )
+                            .font(.title)
+                            .fontWeight(.medium)
+                            .foregroundColor(
+                                viewModel.isEquationEmpty ? .secondary : .primary
+                            )
+                            .padding(.vertical)
+                            .id(equationTextId)
+                            .onChange(of: viewModel.equation) { _ in
+                                scrollView.scrollTo(equationTextId, anchor: .trailing
+                                )
+                            }
                         }
                     }
-                }
-                .padding()
-                
-                Spacer()
-                
-                ZStack {
-                    if viewModel.isReadyToSolve {
-                        solveButton
+                    .padding()
+                    
+                    Spacer()
+                    
+                    ZStack {
+                        if viewModel.isReadyToSolve {
+                            solveButton
+                        }
                     }
+                    .transition(.opacity)
+                    .animation(.easeIn(duration: 0.2), value: viewModel.isReadyToSolve)
+                    
+                    MathKeyboard()
+                        .frame(maxHeight: proxy.size.height / 1.4)
+                        .padding(.bottom, 10)
+                        .padding(.horizontal, 10)
                 }
-                .transition(.opacity)
-                .animation(.easeIn(duration: 0.2), value: viewModel.isReadyToSolve)
-                
-                MathKeyboard()
-                    .frame(maxHeight: 450)
-                    .padding(.bottom, 10)
-                    .padding(.horizontal, 10)
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("Calculator")
+                .navigationDestination(for: EquationSolvingMethod.self) { solutionMethod in
+                    EquationSolution(viewModel: viewModel.viewModelForEquationSolution(with: solutionMethod))
+                }
             }
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationTitle("Calculator")
-            .navigationDestination(for: EquationSolvingMethod.self) { solutionMethod in
-                EquationSolution(viewModel: viewModel.viewModelForEquationSolution(with: solutionMethod))
-            }
+            .tint(.pink)
+            .environmentObject(viewModel)
         }
-        .tint(.pink)
-        .environmentObject(viewModel)
     }
     
     private var solveButton: some View {
