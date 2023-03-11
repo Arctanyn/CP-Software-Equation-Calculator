@@ -61,8 +61,8 @@ private extension NewtonSolutionMethod {
         while abs(equation.expressionFunction(x: x)) > eps {
             iteration += 1
             
-            derivativeX = equation.derivative(at: x)
             let nextX = x - (equation.expressionFunction(x: x) / derivativeX)
+            derivativeX = equation.derivative(at: nextX)
             
             iterationsInfo.append(
                 NewtonIterationInfo(
