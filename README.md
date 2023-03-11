@@ -1,4 +1,4 @@
-# CP-Software
+# CP-Software-Equation-Calculator
 
 An educational project carried out as part of a university assignment on the discipline "Software for computing processes".  
 The application is an equation calculator with various solution methods. 
