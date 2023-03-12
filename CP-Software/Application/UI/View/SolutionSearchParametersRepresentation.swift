@@ -39,7 +39,7 @@ struct SolutionSearchParametersRepresentation: View {
                 Text("Search from")
                 valueTextField(
                     title: "Low",
-                    text: $viewModel.lowSearchRangeText
+                    text: $viewModel.lowSearchRangeLimitText
                 )
                 .focused($textFieldFocus, equals: .low)
                 .onSubmit {
@@ -49,7 +49,7 @@ struct SolutionSearchParametersRepresentation: View {
                 Text("to")
                 valueTextField(
                     title: "High",
-                    text: $viewModel.highSearchRangeText
+                    text: $viewModel.highSearchRangeLimitText
                 )
                 .focused($textFieldFocus, equals: .high)
             }

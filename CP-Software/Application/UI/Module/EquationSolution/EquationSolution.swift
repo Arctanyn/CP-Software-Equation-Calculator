@@ -55,14 +55,13 @@ struct EquationSolution: View {
                 ZStack {
                     if viewModel.isSolveButtonEnable {
                         SolveButton {
-                            viewModel.solve()
                             endEditing()
+                            viewModel.solve()
                         }
+                        .transition(.opacity.animation(.easeIn(duration: 0.2)))
                         .padding()
                     }
                 }
-                .animation(.default, value: viewModel.isSolveButtonEnable)
-                .transition(.opacity)
             }
         }
     }

@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct SolveButton: View {
-    var action: (() -> Void)?
+    private var action: (() -> Void)?
+    
+    init(action: (() -> Void)? = nil) {
+        self.action = action
+    }
     
     var body: some View {
         Button {
