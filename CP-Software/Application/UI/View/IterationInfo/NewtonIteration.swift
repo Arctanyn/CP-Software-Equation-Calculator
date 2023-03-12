@@ -38,6 +38,7 @@ struct NewtonIteration: View {
                 .font(.headline)
                 .foregroundColor(.pink)
         }
+        .padding()
     }
 }
 

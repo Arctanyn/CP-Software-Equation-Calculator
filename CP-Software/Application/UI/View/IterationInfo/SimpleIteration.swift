@@ -40,6 +40,7 @@ struct SimpleIteration: View {
                 .fontWeight(.semibold)
                 .foregroundColor(.pink)
         }
+        .padding()
     }
 }
 
