@@ -12,4 +12,4 @@ At the moment, the following solution methods are implemented in the application
 - The method of simple iterations
 - Newton's method
 
-![IMG_3844](https://user-images.githubusercontent.com/81229461/224509878-d61ff9ee-c708-487b-a297-fd7c98d8b74a.png)
+![IMG_3849](https://user-images.githubusercontent.com/81229461/224535360-7cfe83ad-ac61-4fd8-8d2f-32d5054b4813.png)
