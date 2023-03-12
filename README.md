@@ -1,6 +1,6 @@
 # CP-Software-Equation-Calculator
 
-![180-modified](https://user-images.githubusercontent.com/81229461/224536319-414fd8c0-0e26-4cf9-90c1-11b9cf0aa27f.png)
+![Fotoram io](https://user-images.githubusercontent.com/81229461/224536647-21671194-09be-4a2f-a99e-f1559ecd1273.png)
 
 An educational project carried out as part of a university assignment on the discipline "Software for computing processes".  
 The application is an equation calculator with various solution methods. 
