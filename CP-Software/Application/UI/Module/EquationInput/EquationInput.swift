@@ -38,13 +38,10 @@ struct EquationInput: View {
                     
                     Spacer()
                     
-                    ZStack {
-                        if viewModel.isReadyToSolve {
-                            solveButton
-                        }
+                    if viewModel.isReadyToSolve {
+                        showSolutionButton
+                            .transition(.opacity.animation(.easeIn(duration: 0.2)))
                     }
-                    .transition(.opacity)
-                    .animation(.easeIn(duration: 0.2), value: viewModel.isReadyToSolve)
                     
                     MathKeyboard()
                         .frame(maxHeight: proxy.size.height / 1.5)
@@ -62,7 +59,7 @@ struct EquationInput: View {
         }
     }
     
-    private var solveButton: some View {
+    private var showSolutionButton: some View {
         Button {
             isConfirmationPresented.toggle()
         } label: {
